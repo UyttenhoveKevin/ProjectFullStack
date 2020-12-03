@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="u-font-color--grey u-font-weight--light">
       <router-link :to="'/movie/'+this.id">
     <img class="u-hover" alt="loading..." :src="this.img" />
     </router-link>
@@ -37,7 +37,7 @@ export default {
   created() {
     this.styleSVG();
   },
-  props: ['title','size','img', 'test'],
+  props: ['title','size','img', 'id'],
   data() {
     return {
       added: false,
@@ -58,7 +58,7 @@ export default {
         this.stroke = "#cb063c";
       } else {
         this.fill = "none";
-        this.stroke = "#666b71";
+        this.stroke = "#989FA8";
       }
     },
     updateInCache(){

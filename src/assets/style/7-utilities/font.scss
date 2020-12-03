@@ -1,0 +1,27 @@
+.u-font-color{
+    color: $fc;
+}
+
+.u-font-color--alt{
+    color: $fc-alt;
+}
+
+.u-font-color--grey{
+    color: $grey;
+}
+
+.u-font-upperCase{
+    text-transform: uppercase;
+}
+
+.u-font-weight--light{
+    font-weight: 300;
+}
+
+.u-font-weight--bold{
+    font-weight: 700;
+}
+
+.u-font-weight--black{
+    font-weight: 900;
+}

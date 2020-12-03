@@ -1,0 +1,102 @@
+<template>
+  <div>
+    <div class="o-flex o-flex--space-between">
+      <h1></h1>
+      <h1 class="u-font-weight--black u-font-upperCase">
+        <span class="u-font-color--alt">X </span> Movies
+      </h1>
+      <div>
+        <svg
+          v-if="!showMenu"
+          class="u-hover"
+          v-on:click="toggleMenu"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="18"
+          viewBox="0 0 24 18"
+        >
+          <g
+            id="_9851132801553239378"
+            data-name="9851132801553239378"
+            transform="translate(-7.667 -13)"
+          >
+            <path
+              id="Path_3"
+              data-name="Path 3"
+              d="M8.417,14.591h22.5a.8.8,0,0,0,0-1.591H8.417a.8.8,0,0,0,0,1.591Z"
+              transform="translate(0)"
+              fill="#e6e6e6"
+            />
+            <path
+              id="Path_4"
+              data-name="Path 4"
+              d="M8.417,36.591h22.5a.8.8,0,0,0,0-1.591H8.417a.8.8,0,0,0,0,1.591Z"
+              transform="translate(0 -5.591)"
+              fill="#e6e6e6"
+            />
+            <path
+              id="Path_5"
+              data-name="Path 5"
+              d="M8.417,25.591h22.5a.8.8,0,0,0,0-1.591H8.417a.8.8,0,0,0,0,1.591Z"
+              transform="translate(0 -2.795)"
+              fill="#e6e6e6"
+            />
+          </g>
+        </svg>
+        <svg v-if="showMenu"
+          class="u-hover"
+          v-on:click="toggleMenu"
+          xmlns="http://www.w3.org/2000/svg"
+          width="18.095"
+          height="18.3"
+          viewBox="0 0 18.095 18.3"
+        >
+          <g
+            id="_9851132801553239378"
+            data-name="9851132801553239378"
+            transform="translate(-10.619 -12.748)"
+          >
+            <path
+              id="Path_3"
+              data-name="Path 3"
+              d="M8.417,14.591h22.5a.8.8,0,0,0,0-1.591H8.417a.8.8,0,0,0,0,1.591Z"
+              transform="translate(15.515 -1.866) rotate(45)"
+              fill="#e6e6e6"
+            />
+            <path
+              id="Path_5"
+              data-name="Path 5"
+              d="M8.417,25.591h22.5a.8.8,0,0,0,0-1.591H8.417a.8.8,0,0,0,0,1.591Z"
+              transform="translate(-11.773 18.374) rotate(-45)"
+              fill="#e6e6e6"
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div v-if="showMenu">
+      <h1 class="u-hover">Menu Item 1</h1>
+      <h1 class="u-hover">Menu Item 2</h1>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      showMenu: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.showMenu = !this.showMenu;
+      console.log(this.showMenu);
+    },
+  },
+};
+</script>
+
+<style lang="scss">
+@import "@/assets/style/6-components/topNav.scss";
+</style>
