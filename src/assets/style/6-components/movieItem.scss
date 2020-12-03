@@ -1,0 +1,10 @@
+@import "@/assets/style/1-settings/color.scss";
+
+div{
+    font-weight: 300;
+    color:  $grey;
+}
+
+.c-movieItem-image:hover{
+    cursor: pointer
+}

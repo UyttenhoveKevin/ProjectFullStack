@@ -1,24 +1,15 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/poster.jpg" />
-    <div class="o-flex o-flex--space-between">
-      <h1>Movie Title</h1>
-      <div class="o-flex--space-between">
-        <h1 class="o-spacing--right">Size</h1>
-        <h1>Added</h1>
-      </div>
-    </div>
+  <div>
+    <movie-item id="myid"  title='Interstellar' size="3.6 GB" img="https://wallup.net/wp-content/uploads/2016/01/147474-space-Interstellar_movie-movies.jpg"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import MovieItem from "../components/MovieItem.vue";
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    MovieItem,
   }
 };
 </script>
