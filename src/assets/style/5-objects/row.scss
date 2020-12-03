@@ -1,0 +1,42 @@
+.o-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.o-column{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.o-row--left {
+    background-color: blue;
+    height: 100px;
+}
+
+.o-row--right {
+    background-color: green;
+    height: 100px;    
+}
+
+
+
+.column {
+display: flex;
+flex-direction: column;
+flex-basis: 100%;
+flex: 1;
+}
+
+.blue-column {
+background-color: blue;
+height: 100px;
+}
+
+.green-column {
+background-color: green;
+height: 100px;
+}
