@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 import MovieDetails from '../views/MovieDetails.vue'
 
 Vue.use(VueRouter)
-
+ 
   const routes = [
   {
     path: '/',

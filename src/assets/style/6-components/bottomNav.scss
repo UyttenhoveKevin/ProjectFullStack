@@ -1,0 +1,26 @@
+@import "@/assets/style/1-settings/color.scss";
+
+.bottomNav{
+    position: fixed;
+    background-color: $bg;
+    width: 100%;
+    bottom: 0;
+}
+
+.bottomNav--item{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.u-hover:hover .menu-icon--saved g path{
+    stroke: #D6DEE6;
+}
+
+.u-hover:hover .menu-icon--movies g path{
+    fill: #D6DEE6;
+    stroke: #D6DEE6;
+}
+
+.u-hover:hover .menu-icon--filter #_-Icon-Color{
+    fill: #D6DEE6;
+}

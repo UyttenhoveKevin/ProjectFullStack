@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="topNav">
     <div class="o-flex o-flex--space-between">
       <h1></h1>
       <h1 class="u-font-weight--black u-font-upperCase">
         <span class="u-font-color--alt">X </span> Movies
       </h1>
-      <div>
+      <div class="o-spacing--right">
         <svg
           v-if="!showMenu"
           class="u-hover"
@@ -74,7 +74,7 @@
         </svg>
       </div>
     </div>
-    <div v-if="showMenu">
+    <div class="o-spacing--left" v-if="showMenu">
       <h1 class="u-hover">Menu Item 1</h1>
       <h1 class="u-hover">Menu Item 2</h1>
     </div>

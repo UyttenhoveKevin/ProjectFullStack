@@ -1,7 +1,17 @@
 @import "@/assets/style/1-settings/color.scss";
 
+
+.topNav{
+    position: fixed;
+    background-color: $bg;
+    width: 100%;
+    bottom: 1;
+}
+
 .topNavTitle{
     font-weight: 700;
     text-transform: uppercase;
     color: $fc;
 }
+
+
