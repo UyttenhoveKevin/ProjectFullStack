@@ -2,41 +2,11 @@
   <div>
     <top-nav />
     <div class="o-spacing--body">
-      <movie-item
-        id="myid"
-        title="Interstellar"
-        size="3.6 GB"
-        img="https://wallup.net/wp-content/uploads/2016/01/147474-space-Interstellar_movie-movies.jpg"
-      />
-      <movie-item
-        id="myid"
-        title="Interstellar"
-        size="3.6 GB"
-        img="https://wallup.net/wp-content/uploads/2016/01/147474-space-Interstellar_movie-movies.jpg"
-      />
-      <movie-item
-        id="myid"
-        title="Interstellar"
-        size="3.6 GB"
-        img="https://wallup.net/wp-content/uploads/2016/01/147474-space-Interstellar_movie-movies.jpg"
-      />
-      <movie-item
-        id="myid"
-        title="Interstellar"
-        size="3.6 GB"
-        img="https://wallup.net/wp-content/uploads/2016/01/147474-space-Interstellar_movie-movies.jpg"
-      />
-      <movie-item
-        id="myid"
-        title="Interstellar"
-        size="3.6 GB"
-        img="https://wallup.net/wp-content/uploads/2016/01/147474-space-Interstellar_movie-movies.jpg"
-      />
-      <movie-item
-        id="myid"
-        title="Interstellar"
-        size="3.6 GB"
-        img="https://wallup.net/wp-content/uploads/2016/01/147474-space-Interstellar_movie-movies.jpg"
+      <movie-item v-for="movie in store.state.movies"
+        :id="movie.title"
+        :title="movie.title"
+        :size="movie.size"
+        :img="movie.default_image"
       />
     </div>
     <bottom-nav />
@@ -47,6 +17,7 @@
 import BottomNav from "../components/BottomNav.vue";
 import MovieItem from "../components/MovieItem.vue";
 import TopNav from "../components/TopNav.vue";
+import store from "@/store";
 
 export default {
   name: "Home",
@@ -55,5 +26,10 @@ export default {
     TopNav,
     BottomNav,
   },
+  data(){
+    return{
+      store
+    }
+  }
 };
 </script>

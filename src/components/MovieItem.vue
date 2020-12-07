@@ -1,6 +1,6 @@
 <template>
   <div class="u-font-color--grey u-font-weight--light">
-      <router-link :to="'/movie/'+this.id">
+      <router-link class="o-flex--justify-center" :to="'/movie/'+this.id">
     <img class="u-hover" alt="loading..." :src="this.img" />
     </router-link>
     <div class="o-flex o-flex--space-between">
