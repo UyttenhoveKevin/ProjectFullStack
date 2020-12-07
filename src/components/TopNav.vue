@@ -91,7 +91,7 @@
           </label></h2>
         <input id="password" placeholder="password" type="password"/>
         <div class="o-spacing--center">
-          <button class="c-button" v-on:click="Login">Login</button>
+          <button class="c-button" v-on:click="login">Login</button>
         </div>
       </div>
 
@@ -113,6 +113,9 @@ export default {
       this.showMenu = !this.showMenu;
       console.log(this.showMenu);
     },
+    login(){
+      console.log('logging in')
+    }
   },
 };
 </script>

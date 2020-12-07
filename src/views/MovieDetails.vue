@@ -61,8 +61,11 @@
 
       </div>
       <review v-if="showReviews" v-for="review in movie.reviews" v-bind:key="review.id" :user-name="review.username" :review="review.review" :review-title="review.reviewTitle" :score="review.rating"/>
-      <div class="o-spacing--center">
+      <div v-if="!added" class="o-spacing--center">
         <button class="c-button" v-on:click="addButtonClicked">Add to basket </button>
+      </div>
+      <div v-else class="o-spacing--center">
+        <button class="c-button" v-on:click="removeButtonClicked">Remove from basket </button>
       </div>
     </div>
 
@@ -79,6 +82,7 @@
   export default {
     created() {
       this.movie = store.getters.getMovie(this.$route.params.movieId)
+      this.checkIfAdded()
     },
     components: {
       Tag, Actor, Review
@@ -88,19 +92,26 @@
         store,
         movie: {},
         year: "",
-        showReviews: false
+        showReviews: false,
+        added: false
       }
     },
     methods: {
       toggleReviews(){
         this.showReviews = !this.showReviews
       },
+      checkIfAdded(){
+        let basketItems = JSON.parse(localStorage.getItem('moviesInCart'))
+        this.added = false
+        basketItems.forEach(item => {
+          if (item.title === this.movie.title){
+            this.added = true
+          }
+        })
+      },
       addButtonClicked(){
         try {
           console.log('clicked');
-          //update items in cart
-          // let moviesInCart = localStorage.getItem('moviesInCart')
-          // moviesInCart.push(this.movie)
           let moviesInCart = [];
 
           if (localStorage.getItem('moviesInCart') === null){
@@ -112,7 +123,26 @@
             localStorage.setItem('moviesInCart',JSON.stringify(moviesInCart))
           }
           // console.log(localStorage.getItem('moviesInCart'))
-          this.store.dispatch("addToCart", this.store.state.basketItems + 1)
+          let itemsInBasket = JSON.parse(localStorage.getItem('moviesInCart')).length
+          store.dispatch('addToCart', itemsInBasket)
+          router.push({name: 'Home'})
+        }
+        catch (e){
+          console.log('something went wrong')
+        }
+      },
+      removeButtonClicked(){
+        try {
+          let newBasketItems = []
+          let basketItems = JSON.parse(localStorage.getItem('moviesInCart'))
+          basketItems.forEach(item => {
+            if (item.title !== this.movie.title){
+              newBasketItems.push(item)
+            }
+          });
+          localStorage.setItem('moviesInCart', JSON.stringify(newBasketItems))
+          let itemsInBasket = JSON.parse(localStorage.getItem('moviesInCart')).length
+          store.dispatch('addToCart', itemsInBasket)
           router.push({name: 'Home'})
         }
         catch (e){

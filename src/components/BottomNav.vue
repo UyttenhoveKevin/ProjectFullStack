@@ -141,7 +141,6 @@ export default {
   created() {
     if (localStorage.getItem('moviesInCart') !== null){
       let basket = JSON.parse(localStorage.getItem('moviesInCart'))
-      console.log(basket.length)
       this.store.dispatch("addToCart", basket.length)
     }
 

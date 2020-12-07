@@ -1,12 +1,12 @@
 <template>
   <div class="c-movieItem u-font-color--grey u-font-weight--light">
-      <router-link class="o-flex--justify-center" :to="'/movie/'+this.id">
-    <img class="u-hover" alt="loading..." :src="this.img" />
+      <router-link class="o-flex--justify-center" :to="'/movie/'+movie.title">
+    <img class="u-hover" alt="loading..." :src="movie.default_image" />
     </router-link>
     <div class="o-flex o-flex--space-between">
-      <h1>{{ this.title }}</h1>
+      <h1>{{ movie.title }}</h1>
       <div class="o-flex--space-between">
-        <p class="o-spacing--right o-flex--center">{{ this.size }}</p>
+        <p class="o-spacing--right o-flex--center">{{ movie.size }}</p>
         <svg
           class="u-hover"
           v-on:click="svgClicked"
@@ -33,11 +33,15 @@
 </template>
 
 <script>
+import router from "@/router";
+import store from "@/store";
+
 export default {
   created() {
+    this.checkIfAdded();
     this.styleSVG();
   },
-  props: ['title','size','img', 'id'],
+  props: ['movie'],
   data() {
     return {
       added: false,
@@ -49,10 +53,9 @@ export default {
     svgClicked() {
       this.added = !this.added;
       this.styleSVG();
-      this.updateInCache();
+      this.updateInLocaleStorage();
     },
     styleSVG() {
-      console.log("styling SVG");
       if (this.added) {
         this.fill = "#cb063c";
         this.stroke = "#cb063c";
@@ -61,8 +64,58 @@ export default {
         this.stroke = "#989FA8";
       }
     },
-    updateInCache(){
-        //TODO add to cache
+    checkIfAdded(){
+      let basketItems = JSON.parse(localStorage.getItem('moviesInCart'))
+      basketItems.forEach(item => {
+        if (item.title === this.movie.title){
+          this.added = true;
+        }
+      })
+    },
+    updateInLocaleStorage(){
+        //Update in locale storage
+      if (this.added){
+        this.addToLocaleStorage()
+      }
+      else {
+        this.removeFromLocaleStorage()
+      }
+    },
+    addToLocaleStorage(){
+      try {
+        let moviesInCart = [];
+
+        if (localStorage.getItem('moviesInCart') === null){
+          localStorage.setItem('moviesInCart',"["+JSON.stringify(this.movie)+"]")
+        }
+        else {
+          moviesInCart = JSON.parse(localStorage.getItem('moviesInCart'))
+          moviesInCart.push(this.movie)
+          localStorage.setItem('moviesInCart',JSON.stringify(moviesInCart))
+        }
+        let itemsInBasket = JSON.parse(localStorage.getItem('moviesInCart')).length
+        store.dispatch('addToCart', itemsInBasket)
+      }
+      catch (e){
+        console.log('something went wrong')
+      }
+    },
+    removeFromLocaleStorage(){
+      try {
+        let newBasketItems = []
+        let basketItems = JSON.parse(localStorage.getItem('moviesInCart'))
+        basketItems.forEach(item => {
+          if (item.title !== this.movie.title){
+            newBasketItems.push(item)
+          }
+        });
+        localStorage.setItem('moviesInCart', JSON.stringify(newBasketItems))
+        let itemsInBasket = JSON.parse(localStorage.getItem('moviesInCart')).length
+        store.dispatch('addToCart', itemsInBasket)
+      }
+      catch (e){
+        console.log('something went wrong')
+      }
     }
   },
 };
