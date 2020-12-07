@@ -2,9 +2,12 @@
   <div class="topNav">
     <div class="o-flex o-flex--space-between">
       <h1></h1>
-      <h1 class="u-font-weight--black u-font-upperCase">
-        <span class="u-font-color--alt">X </span> Movies
-      </h1>
+      <router-link to="/">
+        <h1 class="u-font-weight--black u-font-upperCase u-font-color">
+            <span class="u-font-color--alt">X </span> Movies
+        </h1>
+      </router-link>
+
       <div class="o-spacing--right">
         <svg
           v-if="!showMenu"

@@ -29,6 +29,17 @@ const store = new Vuex.Store({
         "name":"Adventure"
       }]
     }]
+  },
+  getters: {
+    getMovie: (state) => (title) => {
+      let movieData;
+      state.movies.forEach(movie => {
+        if (movie.title === title){
+          movieData = movie
+        }
+      })
+      return movieData
+    }
   }
 })
 
