@@ -9,6 +9,17 @@
     align-items: center;
 }
 
+.o-flex--space-around{
+    display: flex;
+    justify-content: space-around;
+}
+
+.o-flex--row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .o-flex--center{
     display:flex;
     align-items: center;
@@ -17,4 +28,16 @@
 .o-flex--justify-center{
     display: flex;
     justify-content: center;
+}
+
+.o-flex--wrap{
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+
+.o-flex--column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

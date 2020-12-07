@@ -1,0 +1,17 @@
+@import "@/assets/style/1-settings/color.scss";
+
+.c-tag--container{
+  display: flex;
+}
+
+.c-tag--item{
+  background-color: $bg-alt;
+  color: $grey;
+  padding: 0.2rem 1rem;
+  margin-right: 1rem;
+}
+
+.c-tag--text{
+  font-size: 0.7rem;
+  font-weight: 800
+}

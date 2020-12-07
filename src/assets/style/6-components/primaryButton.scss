@@ -1,0 +1,22 @@
+@import "@/assets/style/1-settings/color.scss";
+
+.c-button{
+  all: unset;
+  padding: 1rem 4rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $fc-alt;
+
+}
+
+.c-button:hover{
+  cursor: pointer;
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(204, 7, 60, .4);
+}
+
+.c-button--text{
+
+}
