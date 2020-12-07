@@ -1,6 +1,6 @@
 <template>
   <div class="c-movieContainer">
-      <movie-item v-for="movie in store.state.movies"
+      <movie-item v-for="movie in store.state.movies" v-bind:key="movie.title"
         :id="movie.title"
         :title="movie.title"
         :size="movie.size"
