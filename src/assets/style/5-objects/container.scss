@@ -3,3 +3,25 @@
     margin: 0 auto;
 }
 
+.o-top-nav-container{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 0;
+}
+
+@media screen and (min-width: 666px) {
+    .o-top-nav-container{
+        width: 50%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .o-top-nav-container{
+        width: 30%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

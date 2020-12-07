@@ -77,9 +77,26 @@
         </svg>
       </div>
     </div>
-    <div class="o-spacing--left" v-if="showMenu">
-      <h1 class="u-hover">Menu Item 1</h1>
-      <h1 class="u-hover">Menu Item 2</h1>
+    <div class="o-spacing--left o-spacing--right" v-if="showMenu">
+      <div class="o-top-nav-container">
+        <h1>Log in</h1>
+        <h2>
+          <label class="u-hover" for="username">
+            Username
+          </label></h2>
+        <input id="username" placeholder="username" type="text"/>
+        <h2 >
+          <label class="u-hover" for="password">
+            Password
+          </label></h2>
+        <input id="password" placeholder="password" type="password"/>
+        <div class="o-spacing--center">
+          <button class="c-button" v-on:click="Login">Login</button>
+        </div>
+      </div>
+
+
+
     </div>
   </div>
 </template>
@@ -102,4 +119,6 @@ export default {
 
 <style lang="scss">
 @import "@/assets/style/6-components/topNav.scss";
+@import "@/assets/style/6-components/primaryButton.scss";
+
 </style>

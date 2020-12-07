@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VueCookies from 'vue-cookies'
 import * as actions from './actions';
 import * as mutations from './mutations';
 
 Vue.use(Vuex)
+Vue.use(VueCookies)
+
+
+$cookies.set('theme','default');
 
 const store = new Vuex.Store({
   actions,

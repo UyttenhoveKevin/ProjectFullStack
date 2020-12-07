@@ -75,6 +75,7 @@
   import Actor from "@/components/Actor";
   import Review from "@/components/Review"
   import router from "@/router";
+
   export default {
     created() {
       this.movie = store.getters.getMovie(this.$route.params.movieId)
@@ -95,9 +96,28 @@
         this.showReviews = !this.showReviews
       },
       addButtonClicked(){
-        console.log('clicked');
-        this.store.dispatch("addToCart")
-        router.push({name: 'Home'})
+        try {
+          console.log('clicked');
+          //update items in cart
+          // let moviesInCart = localStorage.getItem('moviesInCart')
+          // moviesInCart.push(this.movie)
+          let moviesInCart = [];
+
+          if (localStorage.getItem('moviesInCart') === null){
+            localStorage.setItem('moviesInCart',"["+JSON.stringify(this.movie)+"]")
+          }
+          else {
+            moviesInCart = JSON.parse(localStorage.getItem('moviesInCart'))
+            moviesInCart.push(this.movie)
+            localStorage.setItem('moviesInCart',JSON.stringify(moviesInCart))
+          }
+          // console.log(localStorage.getItem('moviesInCart'))
+          this.store.dispatch("addToCart", this.store.state.basketItems + 1)
+          router.push({name: 'Home'})
+        }
+        catch (e){
+          console.log('something went wrong')
+        }
       }
     }
   }

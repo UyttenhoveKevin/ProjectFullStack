@@ -21,7 +21,7 @@
                     id="Path_8"
                     data-name="Path 8"
                     d="M0,0H14.839V18.48h0l-7.42-3.8L0,18.48Z"
-                    fill="none"
+                    :fill="basketFill"
                     stroke="#989FA8"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -29,7 +29,7 @@
                 />
               </g>
             </svg>
-            <span class="u-font-color--grey u-font-weight--bold">{{store.state.basketItems}}</span>
+            <span class="u-font-color--grey u-font-weight--bold">{{basketItems}}</span>
           </div>
         </div>
         </router-link>
@@ -125,15 +125,26 @@ export default {
       store,
       basketColor: "#111822",
       moviesColor: "#111822",
-      filterColor: "#111822"
+      filterColor: "#111822",
+      basketFill: 'none'
     }
   },
   computed: {
     basketItems(){
+      if (store.state.basketItems > 0){
+        this.basketFill = '#989FA8'
+      }
+      else this.basketFill = 'none'
       return store.state.basketItems
     }
   },
   created() {
+    if (localStorage.getItem('moviesInCart') !== null){
+      let basket = JSON.parse(localStorage.getItem('moviesInCart'))
+      console.log(basket.length)
+      this.store.dispatch("addToCart", basket.length)
+    }
+
     if (router.currentRoute.path === '/'){
       this.moviesSelected();
     }

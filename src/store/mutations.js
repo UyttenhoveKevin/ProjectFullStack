@@ -1,3 +1,3 @@
-export function addToCart(state){
-    state.basketItems = state.basketItems + 1
+export function addToCart(state, amount){
+    state.basketItems = amount
 }
