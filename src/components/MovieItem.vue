@@ -1,5 +1,5 @@
 <template>
-  <div class="u-font-color--grey u-font-weight--light">
+  <div class="c-movieItem u-font-color--grey u-font-weight--light">
       <router-link class="o-flex--justify-center" :to="'/movie/'+this.id">
     <img class="u-hover" alt="loading..." :src="this.img" />
     </router-link>

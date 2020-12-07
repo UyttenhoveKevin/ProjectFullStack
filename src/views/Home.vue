@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="c-movieContainer">
       <movie-item v-for="movie in store.state.movies"
         :id="movie.title"
         :title="movie.title"
@@ -25,3 +25,7 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+@import "@/assets/style/6-components/movieItem.scss";
+
+</style>

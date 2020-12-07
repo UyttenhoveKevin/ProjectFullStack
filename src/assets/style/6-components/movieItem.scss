@@ -1,7 +1,35 @@
 @import "@/assets/style/1-settings/color.scss";
 
-.movieItem{
-    font-weight: 300;
-    color:  $grey;
+.c-movieContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
+.c-movieItem{
+    width: 100%;
+}
+
+@media screen and (min-width: 666px) {
+    .c-movieItem{
+        width: 49%;
+
+    }
+    .c-movieContainer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .c-movieItem{
+        width: 23%;
+        margin-bottom: 2rem;
+    }
+    .c-movieContainer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
