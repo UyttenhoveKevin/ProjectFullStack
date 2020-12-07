@@ -2,35 +2,41 @@
   <div class="bottomNav">
     <div class="o-flex o-flex--space-between">
       <div class="o-spacing--width--1-3">
-        <div class="bottomNav--item o-spacing--center  u-hover">
-          <svg
-            class="menu-icon--saved"
-            xmlns="http://www.w3.org/2000/svg"
-            width="16.839"
-            height="20.48"
-            viewBox="0 0 16.839 20.48"
-          >
-            <g
-              id="Component_4_2"
-              data-name="Component 4 – 2"
-              transform="translate(1 1)"
+        <router-link to="/basket">
+        <div class="bottomNav--item o-spacing--center  u-hover" :style="{borderBottomColor:basketColor}">
+          <div class="o-flex--row">
+            <svg
+                class="menu-icon--saved o-spacing--right-sm"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16.839"
+                height="20.48"
+                viewBox="0 0 16.839 20.48"
             >
-              <path
-                id="Path_8"
-                data-name="Path 8"
-                d="M0,0H14.839V18.48h0l-7.42-3.8L0,18.48Z"
-                fill="none"
-                stroke="#989FA8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              />
-            </g>
-          </svg>
+              <g
+                  id="Component_4_2"
+                  data-name="Component 4 – 2"
+                  transform="translate(1 1)"
+              >
+                <path
+                    id="Path_8"
+                    data-name="Path 8"
+                    d="M0,0H14.839V18.48h0l-7.42-3.8L0,18.48Z"
+                    fill="none"
+                    stroke="#989FA8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                />
+              </g>
+            </svg>
+            <span class="u-font-color--grey u-font-weight--bold">{{store.state.basketItems}}</span>
+          </div>
         </div>
+        </router-link>
       </div>
       <div class="o-spacing--width--1-3">
-        <div class="bottomNav--item  o-spacing--center  u-hover">
+        <router-link to="/">
+        <div class="bottomNav--item  o-spacing--center  u-hover" :style="{borderBottomColor:moviesColor}">
           <svg
           class="menu-icon--movies"
             xmlns="http://www.w3.org/2000/svg"
@@ -62,9 +68,11 @@
             </g>
           </svg>
         </div>
+        </router-link>
       </div>
       <div class="o-spacing--width--1-3">
-        <div class="bottomNav--item o-spacing--center  u-hover">
+        <router-link to="/filter">
+        <div class="bottomNav--item o-spacing--center  u-hover" :style="{borderBottomColor:filterColor}">
           <svg
           class="menu-icon--filter"
             xmlns="http://www.w3.org/2000/svg"
@@ -101,13 +109,83 @@
             </g>
           </svg>
         </div>
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import store from "@/store";
+import router from "@/router";
+
+export default {
+  data(){
+    return {
+      store,
+      basketColor: "#111822",
+      moviesColor: "#111822",
+      filterColor: "#111822"
+    }
+  },
+  computed: {
+    basketItems(){
+      return store.state.basketItems
+    }
+  },
+  created() {
+    if (router.currentRoute.path === '/'){
+      this.moviesSelected();
+    }
+    else if (router.currentRoute.path === '/filter'){
+      this.filterSelected();
+    }
+    else if (router.currentRoute.path === '/basket'){
+      this.basketSelected();
+    }
+    else {
+      this.noneSelected();
+    }
+  },
+  watch:{
+    $route (to, from){
+      if (router.currentRoute.path === '/'){
+        this.moviesSelected();
+      }
+      else if (router.currentRoute.path === '/filter'){
+        this.filterSelected();
+      }
+      else if (router.currentRoute.path === '/basket'){
+        this.basketSelected();
+      }
+      else {
+        this.noneSelected();
+      }
+    }
+  },
+  methods: {
+    basketSelected(){
+      this.basketColor = "#CB063B"
+      this.moviesColor = "#111822"
+      this.filterColor = "#111822"
+    },
+    moviesSelected(){
+      this.basketColor = "#111822"
+      this.moviesColor = "#CB063B"
+      this.filterColor = "#111822"
+    },
+    filterSelected(){
+      this.basketColor = "#111822"
+      this.moviesColor = "#111822"
+      this.filterColor = "#CB063B"
+    },
+    noneSelected(){
+      this.basketColor = "#111822"
+      this.moviesColor = "#111822"
+      this.filterColor = "#111822"
+    }
+  }
+};
 </script>
 
 <style lang="scss">

@@ -6,7 +6,7 @@
     </div>
       <img :src="movie.default_image"/>
       <div class="o-flex--wrap">
-        <tag v-for="tag in movie.tags" :tag="tag"/>
+        <tag v-for="tag in movie.tags" v-bind:key="tag.id" :tag="tag"/>
       </div>
       <h2>Description</h2>
       <div class="u-font-color--grey">
@@ -19,7 +19,7 @@
       </div>
       <h2>Starring</h2>
       <div class="o-flex--wrap">
-        <actor class="o-spacing--width--1-3" v-for="actor in movie.actors" :image="actor.image" :name="actor.name" :first-name="actor.firstName"/>
+        <actor class="o-spacing--width--1-3" v-for="actor in movie.actors" v-bind:key="actor.id" :image="actor.image" :name="actor.name" :first-name="actor.firstName"/>
         <p class="u-font-color--grey" v-if="movie.actors.length === 0">
           No actors found
         </p>
@@ -59,9 +59,9 @@
 
 
     </div>
-    <review v-if="showReviews" v-for="review in movie.reviews" :user-name="review.username" :review="review.review" :review-title="review.reviewTitle" :score="review.rating"/>
+    <review v-if="showReviews" v-for="review in movie.reviews" v-bind:key="review.id" :user-name="review.username" :review="review.review" :review-title="review.reviewTitle" :score="review.rating"/>
     <div class="o-spacing--center">
-      <button class="c-button">Add to basket </button>
+      <button class="c-button" v-on:click="addButtonClicked">Add to basket </button>
     </div>
   </div>
 </template>
@@ -71,6 +71,7 @@
   import Tag from "../components/Tag"
   import Actor from "@/components/Actor";
   import Review from "@/components/Review"
+  import router from "@/router";
   export default {
     created() {
       this.movie = store.getters.getMovie(this.$route.params.movieId)
@@ -89,6 +90,11 @@
     methods: {
       toggleReviews(){
         this.showReviews = !this.showReviews
+      },
+      addButtonClicked(){
+        console.log('clicked');
+        this.store.dispatch("addToCart")
+        router.push({name: 'Home'})
       }
     }
   }

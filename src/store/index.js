@@ -9,7 +9,7 @@ const store = new Vuex.Store({
   actions,
   mutations,
   state: {
-    testValue: "Dit is een test",
+    basketItems: 0,
     movies: [{
       "title": "Tenet",
       "description": "Armed with only one word, Tenet, and fighting for the survival of the entire world, a Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.",
@@ -21,11 +21,13 @@ const store = new Vuex.Store({
       "available": "true",
       "avarageScore": "9",
       "reviews": [{
+        "id": "1",
         "username": "kevin",
         "rating": "9",
         "reviewTitle": "Geweldig",
         "review": "Hele goeie film! Is heel spannend zeker een aanrader"
       },{
+        "id": "2",
         "username": "kevin",
         "rating": "9",
         "reviewTitle": "Geweldig",
@@ -37,13 +39,13 @@ const store = new Vuex.Store({
         "name": "Uyttenhove",
         "image": ""
       },{
-        "id": "12",
+        "id": "13",
         "firstName": "Xander",
         "name": "Uyttenhove",
         "image": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
       }],
       "tags": [{
-        "id": "12",
+        "id": "11",
         "name":"Adventure"
       },
         {
@@ -51,11 +53,11 @@ const store = new Vuex.Store({
           "name":"Comedy"
         },
         {
-          "id": "12",
+          "id": "13",
           "name":"Family"
         },
         {
-          "id": "12",
+          "id": "14",
           "name":"Action"
         }]
     }]
