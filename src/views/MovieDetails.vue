@@ -1,8 +1,6 @@
 <template>
   <div>
-      <h1>{{ $route.params.movieId}}</h1>
-    <p>Test</p>
-    <p> {{store.state.testValue}}</p>
+      <h1> Test </h1>
   </div>
 </template>
 

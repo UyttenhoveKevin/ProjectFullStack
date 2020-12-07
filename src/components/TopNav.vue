@@ -47,8 +47,8 @@
           class="u-hover"
           v-on:click="toggleMenu"
           xmlns="http://www.w3.org/2000/svg"
-          width="18.095"
-          height="18.3"
+          width="24"
+          height="18"
           viewBox="0 0 18.095 18.3"
         >
           <g

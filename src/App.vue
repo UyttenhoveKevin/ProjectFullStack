@@ -1,12 +1,21 @@
 <template>
   <div>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
-    <router-view/>
+    <top-nav />
+    <router-view class="o-spacing--body"/>
+    <bottom-nav />
   </div>
 </template>
+
+<script>
+  import TopNav from "@/components/TopNav";
+  import BottomNav from "@/components/BottomNav";
+  export default {
+    components: {
+      TopNav,
+      BottomNav
+    }
+  }
+</script>
 
 <style lang="scss">
 @import "@/assets/style/screen.scss";
