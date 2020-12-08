@@ -17,6 +17,7 @@ const store = new Vuex.Store({
     user: "anonymous",
     filtersActive: false,
     filters: {},
+    showMenu: false,
     basketItems: 0,
     movies: [{
         "title": "Tenet",

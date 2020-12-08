@@ -1,7 +1,7 @@
 <template>
   <div>
     <top-nav />
-    <router-view class="o-spacing--body"/>
+    <router-view v-if="!showMenu" class="o-spacing--body"/>
     <bottom-nav />
   </div>
 </template>
@@ -10,11 +10,17 @@
 
   import TopNav from "@/components/TopNav";
   import BottomNav from "@/components/BottomNav";
+  import store from "@/store";
 
   export default {
     components: {
       TopNav,
       BottomNav
+    },
+    computed: {
+      showMenu(){
+        return store.state.showMenu
+      }
     }
   }
 </script>

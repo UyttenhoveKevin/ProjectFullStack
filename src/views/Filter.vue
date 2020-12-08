@@ -140,13 +140,17 @@
     },
     created() {
       let filters = store.state.filters;
-      this.checkedGenres = filters.genre;
-      this.searchQuery = filters.search;
-      this.sortAsc = filters.sort.sortAsc;
 
-      this.sortItems.forEach(item => {
-        item.active = item.category === filters.sort.category;
-      })
+      if (filters.genre !== undefined){
+        this.checkedGenres = filters.genre;
+        this.searchQuery = filters.search;
+        this.sortAsc = filters.sort.sortAsc;
+
+        this.sortItems.forEach(item => {
+          item.active = item.category === filters.sort.category;
+        })
+      }
+
     },
     methods: {
       updateSort(item){

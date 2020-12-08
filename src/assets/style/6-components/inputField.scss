@@ -3,6 +3,7 @@
 .select-box {
   position: relative;
   display: block;
+  z-index: 0;
   width: 100%;
   color: $grey;
   @media (min-width: 768px) {

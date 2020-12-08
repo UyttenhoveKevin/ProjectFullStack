@@ -9,3 +9,7 @@ export function updateFilterStatus(state, value){
 export function setFilters(state, filters){
     state.filters = filters
 }
+
+export function setMenu(state, value){
+    state.showMenu = value
+}

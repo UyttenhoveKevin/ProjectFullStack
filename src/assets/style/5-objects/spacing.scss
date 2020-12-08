@@ -15,6 +15,11 @@
     width: 25%;
 }
 
+.o-spacing--height{
+    height: 100vh;
+    z-index: 1;
+}
+
 .o-spacing--center{
     display: flex;
     align-items: center;
@@ -26,6 +31,7 @@
     margin-right: 2em; 
     margin-bottom: 5rem;
     padding-top: 5rem;
+    z-index: 0;
 }
 
 .o-spacing--right{

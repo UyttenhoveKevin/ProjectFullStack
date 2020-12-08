@@ -9,3 +9,7 @@ export function updateFilterStatus({commit}, value){
 export function setFilters({commit}, filters){
     return commit("setFilters", filters)
 }
+
+export function setMenu({commit}, value){
+    return commit("setMenu", value)
+}

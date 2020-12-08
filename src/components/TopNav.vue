@@ -77,7 +77,7 @@
         </svg>
       </div>
     </div>
-    <div class="o-spacing--left o-spacing--right" v-if="showMenu">
+    <div class="o-spacing--left o-spacing--right o-spacing--height" v-if="showMenu">
       <div class="o-top-nav-container">
         <h1>Log in</h1>
         <h2>
@@ -99,16 +99,18 @@
 </template>
 
 <script>
+import router from "@/router";
+import store from "@/store";
+
 export default {
-  data() {
-    return {
-      showMenu: false,
-    };
+  computed: {
+    showMenu(){
+      return store.state.showMenu
+    }
   },
   methods: {
     toggleMenu() {
-      this.showMenu = !this.showMenu;
-      console.log(this.showMenu);
+      store.dispatch("setMenu", !this.showMenu)
     },
     login(){
       console.log('logging in')
