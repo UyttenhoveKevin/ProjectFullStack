@@ -8,8 +8,11 @@
         />
       </div>
       <div class="o-spacing--max-width">
-        <div class="o-spacing--center">
+        <div v-if="store.state.user !== 'anonymous'" class="o-spacing--center">
           <button class="c-button">Order movies</button>
+        </div>
+        <div v-else class="o-spacing--center">
+          <button class="c-button">Login to order</button>
         </div>
       </div>
     </div>

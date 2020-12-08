@@ -1,0 +1,19 @@
+{
+  "name": "x movies",
+  "short_name": "x movies",
+  "theme_color": "#cb063b",
+  "icons": [
+    {
+      "src": "./img/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }],
+  "start_url": "/",
+  "background_color": "#111822",
+  "scope": "/"
+}

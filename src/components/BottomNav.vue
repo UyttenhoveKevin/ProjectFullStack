@@ -95,12 +95,19 @@
                         fill="none"
                         fill-rule="evenodd"
                       />
-                      <path
+                      <path v-if="!store.state.filtersActive"
                         id="_-Icon-Color"
                         data-name="🔹-Icon-Color"
                         d="M10,18h4V16H10ZM3,6V8H21V6Zm3,7H18V11H6Z"
                         fill="#989FA8"
                         fill-rule="evenodd"
+                      />
+                      <path v-if="store.state.filtersActive"
+                            id="_-Icon-Color"
+                            data-name="🔹-Icon-Color"
+                            d="M10,18h4V16H10ZM3,6V8H21V6Zm3,7H18V11H6Z"
+                            fill="#CB063B"
+                            fill-rule="evenodd"
                       />
                     </g>
                   </g>
@@ -171,7 +178,7 @@ export default {
       else {
         this.noneSelected();
       }
-    }
+    },
   },
   methods: {
     basketSelected(){

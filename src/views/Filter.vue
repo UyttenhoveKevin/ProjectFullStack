@@ -5,7 +5,36 @@
       <h2>Search</h2>
       <input type="text" placeholder="Movie title">
 
-      <h2>Genre</h2>
+      <h2><label for="genres">Genre</label> </h2>
+      <div id="genres" class="select-box">
+        <div class="select-box__current" tabindex="1">
+          <div class="select-box__value"><input class="select-box__input" type="radio" id="0" value="1" name="Ben" checked="checked" />
+            <p class="select-box__input-text">All</p>
+          </div>
+          <div class="select-box__value"><input class="select-box__input" type="radio" id="1" value="2" name="Ben" />
+            <p class="select-box__input-text">Action</p>
+          </div>
+          <div class="select-box__value"><input class="select-box__input" type="radio" id="2" value="3" name="Ben" />
+            <p class="select-box__input-text">Comedy</p>
+          </div>
+          <div class="select-box__value"><input class="select-box__input" type="radio" id="3" value="4" name="Ben" />
+            <p class="select-box__input-text">Drama</p>
+          </div>
+          <div class="select-box__value"><input class="select-box__input" type="radio" id="4" value="5" name="Ben" />
+            <p class="select-box__input-text">Family</p>
+          </div>
+          <svg class="select-box__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+            <g><path fill="#989FA8" d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z"/></g>
+</svg>
+        </div>
+        <ul class="select-box__list">
+          <li><label class="select-box__option" for="0" aria-hidden="aria-hidden">All</label></li>
+          <li><label class="select-box__option" for="1" aria-hidden="aria-hidden">Action</label></li>
+          <li><label class="select-box__option" for="2" aria-hidden="aria-hidden">Comedy</label></li>
+          <li><label class="select-box__option" for="3" aria-hidden="aria-hidden">Drama</label></li>
+          <li><label class="select-box__option" for="4" aria-hidden="aria-hidden">Family</label></li>
+        </ul>
+      </div>
 
       <h2>Sort</h2>
       <div>
@@ -46,13 +75,13 @@
               </div>
             </td>
             <td>
-              <h3 v-on:click="updateFilter(item)" v-bind:class="{'active':item.active}" class="u-hover">{{ item.category }}</h3>
+              <h3 v-on:click="updateSort(item)" v-bind:class="{'active':item.active}" class="u-hover">{{ item.category }}</h3>
             </td>
           </tr>
         </table>
       </div>
       <div class="o-spacing--center">
-        <button class="c-button">Filter</button>
+        <button v-on:click="filterList" class="c-button">Filter</button>
       </div>
     </div>
   </div>
@@ -60,6 +89,9 @@
 
 </template>
 <script>
+  import router from "@/router";
+  import store from "@/store";
+
   export default {
     data(){
       return{
@@ -84,7 +116,7 @@
       }
     },
     methods: {
-      updateFilter(item){
+      updateSort(item){
         this.sortItems.forEach(i => {
           let wasActive = i.active
 
@@ -100,11 +132,17 @@
           }
 
         })
+      },
+      filterList(){
+        console.log('filter list')
+        store.dispatch('updateFilterStatus', true)
+        router.push({name: 'Home'})
       }
     }
   }
 </script>
 <style lang="scss">
+@import "@/assets/style/6-components/inputField.scss";
 
 .pathSelectedAsc{
   fill: #CB063B;
