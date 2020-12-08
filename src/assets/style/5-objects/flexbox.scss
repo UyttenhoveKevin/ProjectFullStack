@@ -12,6 +12,7 @@
 .o-flex--space-around{
     display: flex;
     justify-content: space-around;
+    text-align: start;
 }
 
 .o-flex--row{
@@ -39,5 +40,4 @@
 .o-flex--column{
     display: flex;
     flex-direction: column;
-    align-items: center;
 }

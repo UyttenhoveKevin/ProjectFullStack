@@ -1,15 +1,23 @@
 <template>
-  <div class="c-movieContainer">
-    <h1>Basket</h1>
-    <movie-item v-for="movie in store.state.movies" v-bind:key="movie.title"
-                :movie="movie"
-    />
-    <div class="o-spacing--max-width">
-      <div class="o-spacing--center">
-        <button class="c-button">Order movies</button>
+  <div>
+    <h1>Basket ({{basketItemCounter}}) </h1>
+    <div v-if="basketItemCounter > 0">
+      <div class="c-movieContainer">
+        <movie-item v-for="movie in basketItems" v-bind:key="movie.title"
+                    :movie="movie"
+        />
+      </div>
+      <div class="o-spacing--max-width">
+        <div class="o-spacing--center">
+          <button class="c-button">Order movies</button>
+        </div>
       </div>
     </div>
+    <div v-else>
+      <p>Your basket is empty</p>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -23,10 +31,18 @@ export default {
   },
   data(){
     return{
-      store
+      store,
+      basketItems: []
+    }
+  },
+  computed: {
+    basketItemCounter(){
+      this.basketItems = JSON.parse(localStorage.getItem('moviesInCart'))
+      return store.state.basketItems
     }
   },
   created() {
+    this.basketItems = JSON.parse(localStorage.getItem('moviesInCart'))
   }
 };
 </script>

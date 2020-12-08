@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import MovieDetails from '../views/MovieDetails.vue'
 import NotFound from "../views/NotFound";
 import Basket from "@/views/Basket";
+import Filter from "@/views/Filter"
 
 Vue.use(VueRouter)
  
@@ -17,6 +18,11 @@ Vue.use(VueRouter)
       path: '/basket',
       name: 'Basket',
       component: Basket
+    },
+    {
+      path: '/filter',
+      name: 'Filter',
+      component: Filter
     },
   {
     path: '/movie/:movieId',
