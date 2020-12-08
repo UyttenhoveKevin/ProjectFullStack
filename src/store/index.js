@@ -16,6 +16,7 @@ const store = new Vuex.Store({
   state: {
     user: "anonymous",
     filtersActive: false,
+    filters: {},
     basketItems: 0,
     movies: [{
         "title": "Tenet",

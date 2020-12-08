@@ -94,9 +94,6 @@
           <button class="c-button" v-on:click="login">Login</button>
         </div>
       </div>
-
-
-
     </div>
   </div>
 </template>

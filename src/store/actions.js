@@ -5,3 +5,7 @@ export function addToCart({commit}, amount){
 export function updateFilterStatus({commit}, value){
     return commit("updateFilterStatus", value)
 }
+
+export function setFilters({commit}, filters){
+    return commit("setFilters", filters)
+}
