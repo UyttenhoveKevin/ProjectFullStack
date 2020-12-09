@@ -13,3 +13,7 @@ export function setFilters({commit}, filters){
 export function setMenu({commit}, value){
     return commit("setMenu", value)
 }
+
+export function setMovies({commit}, movies){
+    return commit("setMovies", movies)
+}

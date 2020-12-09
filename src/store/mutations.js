@@ -13,3 +13,7 @@ export function setFilters(state, filters){
 export function setMenu(state, value){
     state.showMenu = value
 }
+
+export function setMovies(state, movies){
+    state.movies = movies
+}

@@ -9,6 +9,7 @@
 <script>
 import MovieItem from "../components/MovieItem.vue";
 import store from "@/store";
+import movieRepository from "@/repositories/movieRepository";
 
 export default {
   name: "Home",
@@ -19,8 +20,6 @@ export default {
     return{
       store
     }
-  },
-  created() {
   }
 };
 </script>

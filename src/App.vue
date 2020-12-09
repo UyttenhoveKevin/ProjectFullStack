@@ -11,6 +11,7 @@
   import TopNav from "@/components/TopNav";
   import BottomNav from "@/components/BottomNav";
   import store from "@/store";
+  import movieRepository from "@/repositories/movieRepository";
 
   export default {
     components: {
@@ -21,6 +22,9 @@
       showMenu(){
         return store.state.showMenu
       }
+    },
+    async created() {
+      await store.dispatch('setMovies', movieRepository.getMovies())
     }
   }
 </script>
