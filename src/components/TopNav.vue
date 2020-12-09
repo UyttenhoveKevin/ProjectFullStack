@@ -78,20 +78,39 @@
       </div>
     </div>
     <div class="o-spacing--left o-spacing--right o-spacing--height" v-if="showMenu">
-      <div class="o-top-nav-container">
+      <div class="o-top-nav-container" v-if="store.state.user === 'anonymous'">
         <h1>Log in</h1>
         <h2>
           <label class="u-hover" for="username">
             Username
           </label></h2>
-        <input id="username" placeholder="username" type="text"/>
+        <input id="username" v-model="username" placeholder="username" type="text"/>
         <h2 >
-          <label class="u-hover" for="password">
+          <label class="u-hover"  for="password">
             Password
           </label></h2>
-        <input id="password" placeholder="password" type="password"/>
+        <input id="password" v-model="password" placeholder="password" type="password"/>
+        <div v-if="wrongCredentials" class="o-spacing--center">
+          <p class="u-font-color--alt">Wrong username/password</p>
+        </div>
         <div class="o-spacing--center">
           <button class="c-button" v-on:click="login">Login</button>
+        </div>
+      </div>
+
+<!--      admin menu-->
+      <div class="o-top-nav-container" v-if="store.state.user === 'admin'">
+        <h1>Welcome Admin! 🎉🎉🎉</h1>
+        <div class="o-spacing--center">
+          <button class="c-button" v-on:click="logout">Logout</button>
+        </div>
+      </div>
+
+<!--      user menu-->
+      <div class="o-top-nav-container" v-if="store.state.user === 'user'">
+        <h1>Welcome Kevin 👏👏👏</h1>
+        <div class="o-spacing--center">
+          <button class="c-button" v-on:click="logout">Logout</button>
         </div>
       </div>
     </div>
@@ -101,6 +120,7 @@
 <script>
 import router from "@/router";
 import store from "@/store";
+import userRepository from "@/repositories/userRepository";
 
 export default {
   computed: {
@@ -108,13 +128,27 @@ export default {
       return store.state.showMenu
     }
   },
+  data(){
+    return{
+      store,
+      wrongCredentials: false,
+      username: "",
+      password: ""
+    }
+  },
   methods: {
     toggleMenu() {
       store.dispatch("setMenu", !this.showMenu)
     },
-    login(){
-      console.log('logging in')
+    async login(){
+      this.wrongCredentials = !await userRepository.loginUser(this.username, this.password)
+    },
+
+    async logout(){
+      await userRepository.logout()
     }
+
+
   },
 };
 </script>

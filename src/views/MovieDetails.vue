@@ -60,7 +60,7 @@
 
 
       </div>
-      <review v-if="showReviews" v-for="review in movie.reviews" v-bind:key="review.id" :user-name="review.username" :review="review.reviewDescription" :review-title="review.reviewTitle" :score="review.rating"/>
+      <review v-if="showReviews" v-for="review in movie.reviews" v-bind:key="review.id" :user-name="review.userName" :review="review.reviewDescription" :review-title="review.reviewTitle" :score="review.rating"/>
       <div v-if="!added" class="o-spacing--center">
         <button class="c-button" v-on:click="addButtonClicked">Add to basket </button>
       </div>

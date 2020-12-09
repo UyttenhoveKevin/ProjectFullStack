@@ -17,3 +17,7 @@ export function setMenu(state, value){
 export function setMovies(state, movies){
     state.movies = movies
 }
+
+export function setUser(state, value){
+    state.user = value
+}

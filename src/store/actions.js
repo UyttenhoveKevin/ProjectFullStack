@@ -17,3 +17,7 @@ export function setMenu({commit}, value){
 export function setMovies({commit}, movies){
     return commit("setMovies", movies)
 }
+
+export function setUser({commit}, value){
+    return commit("setUser", value)
+}
