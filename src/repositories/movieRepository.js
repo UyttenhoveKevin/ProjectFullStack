@@ -11,11 +11,17 @@ export default {
     },
 
     async updateMovie(id, movie){
-        let response = await fetch('http://xmoviesapi.azurewebsites.net/api/Movie/5fd0ff980011fbc69e2117f8', {
-            method: 'PUT',
-            body: JSON.stringify(movie)
-        })
-
-        return response.json()
+        try {
+            await fetch('http://xmoviesapi.azurewebsites.net/api/Movie/5fd0ff980011fbc69e2117f8', {
+                headers: {'Content-Type': 'application/json'},
+                method: 'PUT',
+                mode: 'cors',
+                body: JSON.stringify(movie)
+            })
+        }
+        catch (e){
+            return false
+        }
+        return true
     }
 }

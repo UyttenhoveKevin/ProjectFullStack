@@ -2,7 +2,7 @@
   <div>
     <div class="o-top-nav-container">
 
-      <h1 class="o-spacing--bottom">Reviewing: {{ $route.params.movieId }}</h1>
+      <h1 class="o-spacing--bottom">Reviewing: <span>{{ $route.params.movieId }}</span> </h1>
 
       <h2>Title</h2>
       <input type="text" v-model="title" placeholder="Review title">
@@ -25,14 +25,20 @@
           </li>
         </ul>
       </div>
+
       <div class="o-spacing--center o-spacing--top">
-        <button class="c-button" v-on:click="addReview">Write review</button>
+          <button class="c-button" v-on:click="addReview">Write review</button>
+      </div>
+      <div v-if="!fieldsValid" class="o-spacing--center">
+        <p class="u-font-color--alt">All fields required</p>
       </div>
     </div>
   </div>
 </template>
 <script>
 import store from "@/store";
+import movieRepository from "@/repositories/movieRepository";
+import router from "@/router";
 
 export default {
   data() {
@@ -40,12 +46,43 @@ export default {
       store,
       title: "",
       description: "",
-      checked: 1
+      checked: 1,
+      fieldsValid: true,
+      movie: {}
     }
   },
+  async created() {
+    let movies = await movieRepository.getMovies()
+
+    movies.forEach(m =>{
+      if (m.title === this.$route.params.movieId){
+        this.movie = m
+      }
+    })
+  },
   methods: {
-    addReview() {
-      console.log('adding review')
+    async addReview() {
+      this.fieldsValid = !(this.title === "" || this.description === "");
+
+      let movieReviews= []
+
+      if (this.fieldsValid){
+        movieReviews = this.movie.reviews;
+
+        let newReview= {
+          userName: store.state.user,
+          rating: this.checked.toString(),
+          reviewTitle: this.title,
+          reviewDescription: this.description
+        }
+
+        movieReviews.push(newReview)
+        this.movie.reviews = movieReviews
+
+        await router.push({name: "Home"})
+        await movieRepository.updateMovie(this.movie.id, this.movie)
+      }
+
     }
   }
 }
