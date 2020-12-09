@@ -183,19 +183,19 @@
           }
         })
       },
-      filterList(){
+      async filterList(){
 
-        store.dispatch('setMovies',movieRepository.getMovies())
-        store.dispatch('updateFilterStatus', true)
+        await store.dispatch('setMovies',await movieRepository.getMovies())
+        await store.dispatch('updateFilterStatus', true)
 
         let filters = {
           search: this.searchQuery,
           genre: this.checkedGenres,
           sort: this.selectedSortItem
         }
-        store.dispatch('setFilters', filters)
+        await store.dispatch('setFilters', filters)
         this.filterMovies(filters)
-        router.push({name: 'Home'})
+        await router.push({name: 'Home'})
       },
 
       removeFilters(){

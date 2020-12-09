@@ -5,7 +5,7 @@
         <h1> {{ $route.params.movieId + " (" + this.movie.dateReleased.slice(0,4) + ")"}} </h1>
         <h1 class="u-font-color--grey"> {{movie.avarageScore}}/10</h1>
       </div>
-      <img :src="movie.default_image"/>
+      <img :src="movie.default_Image"/>
       <div class="o-flex--wrap">
         <tag v-for="tag in movie.tags" v-bind:key="tag.id" :tag="tag"/>
       </div>
@@ -62,7 +62,7 @@
 
 
       </div>
-      <review v-if="showReviews" v-for="review in movie.reviews" v-bind:key="review.id" :user-name="review.username" :review="review.review" :review-title="review.reviewTitle" :score="review.rating"/>
+      <review v-if="showReviews" v-for="review in movie.reviews" v-bind:key="review.id" :user-name="review.username" :review="review.reviewDescription" :review-title="review.reviewTitle" :score="review.rating"/>
       <div v-if="!added" class="o-spacing--center">
         <button class="c-button" v-on:click="addButtonClicked">Add to basket </button>
       </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="c-movieItem u-font-color--grey u-font-weight--light">
       <router-link class="o-flex--justify-center" :to="'/movie/'+movie.title">
-    <img class="u-hover" alt="loading..." :src="movie.default_image" />
+    <img class="u-hover" alt="loading..." :src="movie.default_Image" />
     </router-link>
     <div class="o-flex o-flex--space-between">
       <h1>{{ movie.title }}</h1>

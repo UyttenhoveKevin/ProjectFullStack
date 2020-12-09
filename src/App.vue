@@ -24,7 +24,7 @@
       }
     },
     async created() {
-      await store.dispatch('setMovies', movieRepository.getMovies())
+      await store.dispatch('setMovies', await movieRepository.getMovies())
     }
   }
 </script>
