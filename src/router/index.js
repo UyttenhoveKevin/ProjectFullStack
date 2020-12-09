@@ -4,7 +4,8 @@ import Home from '../views/Home.vue'
 import MovieDetails from '../views/MovieDetails.vue'
 import NotFound from "../views/NotFound";
 import Basket from "@/views/Basket";
-import Filter from "@/views/Filter"
+import Filter from "@/views/Filter";
+import AddReview from "@/views/AddReview";
 
 Vue.use(VueRouter)
  
@@ -28,6 +29,11 @@ Vue.use(VueRouter)
     path: '/movie/:movieId',
     component: MovieDetails
   },
+    {
+      path: '/movie/:movieId/addReview',
+      name: 'AddReview',
+      component: AddReview
+    },
     {
       path: "/:catchAll(.*)",
       component: NotFound,

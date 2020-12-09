@@ -109,6 +109,7 @@
 <!--      user menu-->
       <div class="o-top-nav-container" v-if="store.state.user === 'user'">
         <h1>Welcome Kevin 👏👏👏</h1>
+        <h2 class="u-hover"> Orders</h2>
         <div class="o-spacing--center">
           <button class="c-button" v-on:click="logout">Logout</button>
         </div>
@@ -142,6 +143,8 @@ export default {
     },
     async login(){
       this.wrongCredentials = !await userRepository.loginUser(this.username, this.password)
+      this.username = ""
+      this.password = ""
     },
 
     async logout(){

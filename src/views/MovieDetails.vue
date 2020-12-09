@@ -2,7 +2,7 @@
   <div>
     <div class="c-movieDetailContainer">
       <div class="o-flex--space-between">
-        <h1> {{ $route.params.movieId + " (" + this.movie.dateReleased.slice(0,4) + ")"}} </h1>
+        <h1> {{ $route.params.movieId + " (" + movie.dateReleased.slice(0,4) + ")"}} </h1>
         <h1 class="u-font-color--grey"> {{movie.avarageScore}}/10</h1>
       </div>
       <img :src="movie.default_Image"/>
@@ -60,7 +60,12 @@
 
 
       </div>
-      <review v-if="showReviews" v-for="review in movie.reviews" v-bind:key="review.id" :user-name="review.userName" :review="review.reviewDescription" :review-title="review.reviewTitle" :score="review.rating"/>
+      <div v-if="showReviews">
+        <review  v-for="review in movie.reviews" v-bind:key="review.id" :user-name="review.userName" :review="review.reviewDescription" :review-title="review.reviewTitle" :score="review.rating"/>
+        <div class="o-spacing--center">
+          <button class="c-button--alt" v-on:click="writeReview">Write review</button>
+        </div>
+      </div>
       <div v-if="!added" class="o-spacing--center">
         <button class="c-button" v-on:click="addButtonClicked">Add to basket </button>
       </div>
@@ -78,10 +83,17 @@
   import Actor from "@/components/Actor";
   import Review from "@/components/Review"
   import router from "@/router";
+  import movieRepository from "@/repositories/movieRepository";
 
   export default {
-    created() {
-      this.movie = store.getters.getMovie(this.$route.params.movieId)
+    async created() {
+      let movies = await movieRepository.getMovies()
+
+      movies.forEach(m =>{
+        if (m.title === this.$route.params.movieId){
+          this.movie = m
+        }
+      })
       this.checkIfAdded()
     },
     components: {
@@ -90,7 +102,12 @@
     data(){
       return{
         store,
-        movie: {},
+        movie: {
+          dateReleased: "",
+          actors:  {},
+          reviews: {},
+          tags: {}
+        },
         year: "",
         showReviews: false,
         added: false
@@ -148,6 +165,9 @@
         catch (e){
           console.log('something went wrong')
         }
+      },
+      writeReview(){
+        router.push({name:"AddReview"})
       }
     }
   }

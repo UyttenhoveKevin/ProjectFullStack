@@ -166,6 +166,7 @@ export default {
   },
   watch:{
     $route (to, from){
+      store.dispatch("setMenu", false)
       if (router.currentRoute.path === '/'){
         this.moviesSelected();
       }
