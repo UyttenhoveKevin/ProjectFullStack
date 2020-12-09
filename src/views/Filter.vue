@@ -107,6 +107,7 @@
 <script>
   import router from "@/router";
   import store from "@/store";
+  import movieRepository from "@/repositories/movieRepository";
 
   export default {
     data(){
@@ -175,7 +176,7 @@
         })
       },
       filterList(){
-        console.log('filter list')
+        store.dispatch('setMovies',movieRepository.getMovies())
         store.dispatch('updateFilterStatus', true)
 
         let filters = {
@@ -184,10 +185,14 @@
           sort: this.selectedSortItem
         }
         store.dispatch('setFilters', filters)
+        this.filterMovies(filters)
         router.push({name: 'Home'})
       },
+
       removeFilters(){
+        store.dispatch('setMovies',movieRepository.getMovies())
         store.dispatch('updateFilterStatus', false)
+        store.dispatch('setFilters', {})
         this.searchQuery= "";
         this.checkedGenres= 1;
         this.sortItems =  [
@@ -207,7 +212,61 @@
             category: "Rating",
             active: false
           }]
+      },
+      filterMovies(filters){
+
+        let movies = store.state.movies;
+        let filteredList = []
+        if (filters.search !== ""){
+          filteredList = this.filterSearch(movies, filters.search)
+          if (filters.genre !== 1){
+            filteredList = this.filterGenre(filteredList, filters.genre)
+          }
+        }
+        else  if (filters.genre !== 1){
+            filteredList = this.filterGenre(movies, filters.genre)
+          }
+        else{
+          filteredList = movies
+        }
+
+        store.dispatch('setMovies', filteredList)
+      },
+      filterGenre(movieList, genreId){
+        let genreList = ['All','Action','Comedy','Drama','Family']
+        let filteredList =[];
+
+        movieList.forEach(movie =>{
+          let hasTag = false
+          movie.tags.forEach(tag => {
+            if (tag.name === genreList[genreId-1]){
+              console.log(tag.name)
+              hasTag = true
+            }
+          });
+          if (hasTag){
+            filteredList.push(movie)
+          }
+        })
+
+        return filteredList
+      },
+      filterSearch(movieList, search){
+        let filteredList = []
+
+        movieList.forEach(movie =>{
+          if (movie.title.toLocaleLowerCase().includes(search.toLowerCase())){
+            filteredList.push(movie)
+          }
+        })
+
+        return filteredList
+      },
+
+      sortList(movieList){
+
       }
+
     }
   }
 </script>

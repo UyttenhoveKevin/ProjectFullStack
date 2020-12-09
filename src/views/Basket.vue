@@ -12,7 +12,7 @@
           <button class="c-button">Order movies</button>
         </div>
         <div v-else class="o-spacing--center">
-          <button class="c-button">Login to order</button>
+          <button class="c-button" v-on:click="showLogin">Login to order</button>
         </div>
       </div>
     </div>
@@ -42,6 +42,11 @@ export default {
     basketItemCounter(){
       this.basketItems = JSON.parse(localStorage.getItem('moviesInCart'))
       return store.state.basketItems
+    }
+  },
+  methods: {
+    showLogin(){
+      store.dispatch('setMenu', true)
     }
   },
   created() {
