@@ -7,7 +7,7 @@ export default {
             "default_image": "https://images.bruzz.be/bulk_image_upload/1598337756/deel1/1719%20FILM_TENET.jpg?auto=format&crop=edges%252C%2520entropy&fit=crop&ixlib=php-1.1.0&q=95&w=640&s=1693f3ad9715f1bd0684735b9efec544",
             "alt_images": ["https://m.media-amazon.com/images/M/MV5BYzg0NGM2NjAtNmIxOC00MDJmLTg5ZmYtYzM0MTE4NWE2NzlhXkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_UX182_CR0,0,182,268_AL_.jpg"],
             "dateReleased": "2020-09-03",
-            "dateAdded": "2020-12-07",
+            "dateAdded": "2020-12-09",
             "available": "true",
             "avarageScore": "9",
             "reviews": [{

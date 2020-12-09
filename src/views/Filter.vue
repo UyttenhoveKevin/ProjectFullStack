@@ -193,9 +193,6 @@
           genre: this.checkedGenres,
           sort: this.selectedSortItem
         }
-
-        console.log('setting filters')
-        console.log(this.selectedSortItem.category + ":" + this.selectedSortItem.sortAsc)
         store.dispatch('setFilters', filters)
         this.filterMovies(filters)
         router.push({name: 'Home'})
@@ -277,30 +274,36 @@
       },
 
       sortList(movieList, category, sortAsc){
-        console.log(sortAsc)
-        console.log(movieList)
+        if (category === "Title"){
+          return this.sortTitle(movieList, sortAsc)
+        }
 
-        this.sortTitle(movieList, category, sortAsc)
+        if (category === "Year"){
+          return this.sortYear(movieList,sortAsc)
+        }
 
+        if (category === "DateAdded"){
+          return this.sortDateAdded(movieList,sortAsc)
+        }
 
-        movieList.forEach(i => console.log(i.title))
+        if (category === "Rating"){
+          return this.sortDateAdded(movieList,sortAsc)
+        }
+
       },
-      sortTitle(movieList, category, sortAsc){
+      sortTitle(movieList, sortAsc){
         if (sortAsc){
-          if (category === "Title"){
             movieList.sort(function (a,b){
               if (a.title < b.title) {
                 return -1;
               }
-              if (b < a) {
+              if (b.title < a.title) {
                 return 1;
               }
               return 0;
             })
-          }
         }
         else {
-          if (category === "Title"){
             movieList.sort(function (a,b){
               if (a.title > b.title) {
                 return -1;
@@ -310,8 +313,91 @@
               }
               return 0;
             })
-          }
         }
+        return movieList
+      },
+      sortYear(movieList, sortAsc){
+        if (sortAsc){
+          movieList.sort(function (a,b){
+            let dateA = new Date(a.dateReleased)
+            let dateB = new Date(b.dateReleased)
+            if (dateA < dateB) {
+              return -1;
+            }
+            if (dateB < dateA) {
+              return 1;
+            }
+            return 0;
+          })
+        }
+        else {
+          movieList.sort(function (a,b){
+            let dateA = new Date(a.dateReleased)
+            let dateB = new Date(b.dateReleased)
+            if (dateA > dateB) {
+              return -1;
+            }
+            if (dateB > dateA) {
+              return 1;
+            }
+            return 0;
+          })
+        }
+        return movieList
+      },
+      sortDateAdded(movieList, sortAsc){
+        if (sortAsc){
+          movieList.sort(function (a,b){
+            let dateA = new Date(a.dateAdded)
+            let dateB = new Date(b.dateAdded)
+            if (dateA < dateB) {
+              return -1;
+            }
+            if (dateB < dateA) {
+              return 1;
+            }
+            return 0;
+          })
+        }
+        else {
+          movieList.sort(function (a,b){
+            let dateA = new Date(a.dateAdded)
+            let dateB = new Date(b.dateAdded)
+            if (dateA > dateB) {
+              return -1;
+            }
+            if (dateB > dateA) {
+              return 1;
+            }
+            return 0;
+          })
+        }
+        return movieList
+      },
+      sortRating(movieList, sortAsc){
+        if (sortAsc){
+          movieList.sort(function (a,b){
+            if (a.avarageScore < b.avarageScore) {
+              return -1;
+            }
+            if (b.avarageScore < a.avarageScore) {
+              return 1;
+            }
+            return 0;
+          })
+        }
+        else {
+          movieList.sort(function (a,b){
+            if (a.avarageScore > b.avarageScore) {
+              return -1;
+            }
+            if (b.avarageScore > a.avarageScore) {
+              return 1;
+            }
+            return 0;
+          })
+        }
+        return movieList
       }
 
     }
