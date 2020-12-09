@@ -9,11 +9,9 @@
       <div class="o-flex--wrap">
         <tag v-for="tag in movie.tags" v-bind:key="tag.id" :tag="tag"/>
       </div>
-      <div class="o-flex--space-between">
         <h2>Description</h2>
-      </div>
       <div class="u-font-color--grey">
-        <p v-if="movie.description !== ''">
+        <p v-if="movie.description !== '' && movie.description !== null">
           {{movie.description}}
         </p>
         <p v-else>
