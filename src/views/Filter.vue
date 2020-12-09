@@ -146,9 +146,17 @@
         this.checkedGenres = filters.genre;
         this.searchQuery = filters.search;
         this.sortAsc = filters.sort.sortAsc;
-
         this.sortItems.forEach(item => {
-          item.active = item.category === filters.sort.category;
+          if(item.category === filters.sort.category){
+            item.active = true;
+            this.selectedSortItem = {
+              category: item.category,
+              sortAsc: this.sortAsc
+            }
+          }
+          else {
+            item.active = false
+          }
         })
       }
 
@@ -176,6 +184,7 @@
         })
       },
       filterList(){
+
         store.dispatch('setMovies',movieRepository.getMovies())
         store.dispatch('updateFilterStatus', true)
 
@@ -184,6 +193,9 @@
           genre: this.checkedGenres,
           sort: this.selectedSortItem
         }
+
+        console.log('setting filters')
+        console.log(this.selectedSortItem.category + ":" + this.selectedSortItem.sortAsc)
         store.dispatch('setFilters', filters)
         this.filterMovies(filters)
         router.push({name: 'Home'})
@@ -230,6 +242,7 @@
           filteredList = movies
         }
 
+        this.sortList(filteredList, filters.sort.category, filters.sort.sortAsc)
         store.dispatch('setMovies', filteredList)
       },
       filterGenre(movieList, genreId){
@@ -263,8 +276,42 @@
         return filteredList
       },
 
-      sortList(movieList){
+      sortList(movieList, category, sortAsc){
+        console.log(sortAsc)
+        console.log(movieList)
 
+        this.sortTitle(movieList, category, sortAsc)
+
+
+        movieList.forEach(i => console.log(i.title))
+      },
+      sortTitle(movieList, category, sortAsc){
+        if (sortAsc){
+          if (category === "Title"){
+            movieList.sort(function (a,b){
+              if (a.title < b.title) {
+                return -1;
+              }
+              if (b < a) {
+                return 1;
+              }
+              return 0;
+            })
+          }
+        }
+        else {
+          if (category === "Title"){
+            movieList.sort(function (a,b){
+              if (a.title > b.title) {
+                return -1;
+              }
+              if (b.title > a.title) {
+                return 1;
+              }
+              return 0;
+            })
+          }
+        }
       }
 
     }
