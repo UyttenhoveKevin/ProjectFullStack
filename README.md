@@ -1,9 +1,9 @@
 # xmovies
 
 ## Project info
-Dit is de eerste release. Er zijn nog een aantal zaken die ik morgen (Dinsdag 8 December) moet aanpassen. 
-Waaronder het toevoegen van de back-end zodat er kan worden gefilterd en kan worden ingelogd. Ik maak morgen dan een nieuwe release.
-
+Ik volg enkel het vak Front-end. De integratie van de backend werkt nog niet helemaal dus daar ben ik nog mee bezig.
+Front end is zo goed als af. Ben bezig met het maken van de API
+(PS een release maken lukte mij niet zonder gitpro en dat is vervallen dit jaar)
 
 ## Project setup
 ```
