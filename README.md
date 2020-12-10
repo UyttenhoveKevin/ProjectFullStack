@@ -1,9 +1,15 @@
 # xmovies
 
 ## Project info
-Ik volg enkel het vak Front-end. De integratie van de backend werkt nog niet helemaal dus daar ben ik nog mee bezig.
-Front end is zo goed als af. Ben bezig met het maken van de API
-(PS een release maken lukte mij niet zonder gitpro en dat is vervallen dit jaar)
+Ik volg enkel het vak Front-end. 
+
+Login Credentials
+User:
+un: kevin
+pw: test
+Admin:
+un: admin
+pw: test
 
 ## Project setup
 ```
