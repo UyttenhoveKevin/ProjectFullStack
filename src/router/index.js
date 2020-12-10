@@ -6,6 +6,7 @@ import NotFound from "../views/NotFound";
 import Basket from "@/views/Basket";
 import Filter from "@/views/Filter";
 import AddReview from "@/views/AddReview";
+import Orders from "@/views/Orders";
 
 Vue.use(VueRouter)
  
@@ -24,6 +25,11 @@ Vue.use(VueRouter)
       path: '/filter',
       name: 'Filter',
       component: Filter
+    },
+    {
+      path: '/orders',
+      name: 'Orders',
+      component: Orders
     },
   {
     path: '/movie/:movieId',

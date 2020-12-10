@@ -108,10 +108,14 @@
 
 <!--      user menu-->
       <div class="o-top-nav-container" v-if="store.state.user === 'user'">
-        <h1>Welcome Kevin 👏👏👏</h1>
-        <h2 class="u-hover"> Orders</h2>
-        <div class="o-spacing--center">
-          <button class="c-button" v-on:click="logout">Logout</button>
+        <div class="o-menu-item-container">
+          <h1 class="o-spacing--bottom u-font-weight--light">Welcome Kevin 👏👏👏</h1>
+        </div>
+        <div class="o-menu-item-container">
+          <h2 class="u-hover" v-on:click="navToOrders"> Orders</h2>
+        </div>
+        <div class="o-menu-item-container">
+          <h2 class="u-hover" v-on:click="logout"> Logout</h2>
         </div>
       </div>
     </div>
@@ -149,6 +153,10 @@ export default {
 
     async logout(){
       await userRepository.logout()
+    },
+
+    navToOrders(){
+      router.push({name: "Orders"})
     }
 
 

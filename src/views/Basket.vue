@@ -9,7 +9,7 @@
       </div>
       <div class="o-spacing--max-width">
         <div v-if="store.state.user !== 'anonymous'" class="o-spacing--center">
-          <button class="c-button">Order movies</button>
+          <button class="c-button" v-on:click="orderMovies">Order movies</button>
         </div>
         <div v-else class="o-spacing--center">
           <button class="c-button" v-on:click="showLogin">Login to order</button>
@@ -47,6 +47,22 @@ export default {
   methods: {
     showLogin(){
       store.dispatch('setMenu', true)
+    },
+    orderMovies(){
+      // localStorage.setItem('moviesInCart',"["+JSON.stringify(this.movie)+"]")
+      let orders = [];
+
+      if (localStorage.getItem('orders') === null){
+        localStorage.setItem('orders',"["+JSON.stringify(this.basketItems)+"]")
+      }
+      else {
+        orders = JSON.parse(localStorage.getItem('orders'))
+        orders.push(this.basketItems)
+        localStorage.setItem('orders',JSON.stringify(orders))
+      }
+
+      localStorage.setItem('moviesInCart', JSON.stringify([]))
+      store.dispatch('addToCart', 0)
     }
   },
   created() {

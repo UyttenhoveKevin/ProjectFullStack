@@ -1,6 +1,12 @@
+@import "@/assets/style/1-settings/color.scss";
+
 .o-container {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.o-menu-item-container{
+    border-bottom: 1px solid $bg-alt;
 }
 
 .o-top-nav-container{
