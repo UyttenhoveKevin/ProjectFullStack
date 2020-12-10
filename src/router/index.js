@@ -7,6 +7,7 @@ import Basket from "@/views/Basket";
 import Filter from "@/views/Filter";
 import AddReview from "@/views/AddReview";
 import Orders from "@/views/Orders";
+import AddMovie from "@/views/AddMovie";
 
 Vue.use(VueRouter)
  
@@ -30,6 +31,11 @@ Vue.use(VueRouter)
       path: '/orders',
       name: 'Orders',
       component: Orders
+    },
+    {
+      path: '/addMovie',
+      name: 'AddMovie',
+      component: AddMovie
     },
   {
     path: '/movie/:movieId',

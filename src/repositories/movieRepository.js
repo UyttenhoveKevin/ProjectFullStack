@@ -23,5 +23,19 @@ export default {
             return false
         }
         return true
+    },
+
+    async createMovie(movie){
+        try {
+            await fetch('http://xmoviesapi.azurewebsites.net/api/Movie', {
+                headers: {'Content-Type': 'application/json'},
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify(movie)
+            })
+        }
+        catch (e){
+
+        }
     }
 }

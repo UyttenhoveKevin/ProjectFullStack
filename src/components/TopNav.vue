@@ -100,9 +100,15 @@
 
 <!--      admin menu-->
       <div class="o-top-nav-container" v-if="store.state.user === 'admin'">
-        <h1>Welcome Admin! 🎉🎉🎉</h1>
-        <div class="o-spacing--center">
-          <button class="c-button" v-on:click="logout">Logout</button>
+        <h1 class="o-spacing--bottom u-font-weight--light">Welcome Admin! 🎉🎉🎉</h1>
+        <div class="o-menu-item-container">
+          <h2 class="u-hover" v-on:click="navToOrders"> Orders</h2>
+        </div>
+        <div class="o-menu-item-container">
+          <h2 class="u-hover" v-on:click="navToMovie"> Add Movie</h2>
+        </div>
+        <div class="o-menu-item-container">
+          <h2 class="u-hover" v-on:click="logout"> Logout</h2>
         </div>
       </div>
 
@@ -156,7 +162,21 @@ export default {
     },
 
     navToOrders(){
-      router.push({name: "Orders"})
+      if (router.currentRoute.name !== "Orders"){
+        router.push({name: "Orders"})
+      }
+      else {
+        this.store.dispatch('setMenu', false)
+      }
+    },
+
+    navToMovie(){
+      if (router.currentRoute.name !== "AddMovie"){
+        router.push({name: "AddMovie"})
+      }
+      else {
+        this.store.dispatch('setMenu', false)
+      }
     }
 
 
