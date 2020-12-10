@@ -4,12 +4,14 @@
 Ik volg enkel het vak Front-end. 
 
 Login Credentials
-User:
-un: kevin
-pw: test
-Admin:
-un: admin
-pw: test
+
+User
+
+Username: Kevin Password: test
+
+Admin
+
+Username: admin Password: admin
 
 ## Project setup
 ```
