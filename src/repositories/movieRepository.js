@@ -12,7 +12,7 @@ export default {
 
     async updateMovie(id, movie){
         try {
-            await fetch('http://xmoviesapi.azurewebsites.net/api/Movie/5fd0ff980011fbc69e2117f8', {
+            await fetch('http://xmoviesapi.azurewebsites.net/api/Movie/'+id, {
                 headers: {'Content-Type': 'application/json'},
                 method: 'PUT',
                 mode: 'cors',
