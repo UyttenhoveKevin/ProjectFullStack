@@ -1,13 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import MovieDetails from '../views/MovieDetails.vue'
-import NotFound from "../views/NotFound";
-import Basket from "@/views/Basket";
-import Filter from "@/views/Filter";
-import AddReview from "@/views/AddReview";
-import Orders from "@/views/Orders";
-import AddMovie from "@/views/AddMovie";
 
 Vue.use(VueRouter)
  
@@ -15,40 +7,40 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import('../views/Home')
   },
     {
       path: '/basket',
       name: 'Basket',
-      component: Basket
+      component: () => import('../views/Basket')
     },
     {
       path: '/filter',
       name: 'Filter',
-      component: Filter
+      component: () => import('../views/Filter')
     },
     {
       path: '/orders',
       name: 'Orders',
-      component: Orders
+      component: () => import('../views/Orders')
     },
     {
       path: '/addMovie',
       name: 'AddMovie',
-      component: AddMovie
+      component: () => import('../views/AddMovie')
     },
   {
     path: '/movie/:movieId',
-    component: MovieDetails
+    component: () => import('../views/MovieDetails')
   },
     {
       path: '/movie/:movieId/addReview',
       name: 'AddReview',
-      component: AddReview
+      component: () => import('../views/AddReview')
     },
     {
       path: "/:catchAll(.*)",
-      component: NotFound,
+      component: () => import('../views/NotFound'),
     },
 ]
 
