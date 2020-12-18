@@ -1,7 +1,10 @@
 <template>
   <div class="topNav">
     <div class="o-flex o-flex--space-between">
-      <h1></h1>
+      <div class="o-flex--space-between">
+        <h2 class="o-spacing--left u-hover" v-bind:class="{'active':enActive}" v-on:click="setLocale('en')">EN</h2>
+        <h2 class="o-spacing--left-sm u-hover" v-bind:class="{'active':!enActive}" v-on:click="setLocale('nl')">NL</h2>
+      </div>
       <router-link to="/">
         <h1 class="u-font-weight--black u-font-upperCase u-font-color">
             <span class="u-font-color--alt">X </span> Movies
@@ -144,7 +147,8 @@ export default {
       store,
       wrongCredentials: false,
       username: "",
-      password: ""
+      password: "",
+      enActive: true
     }
   },
   methods: {
@@ -177,6 +181,17 @@ export default {
       else {
         this.store.dispatch('setMenu', false)
       }
+    },
+
+    setLocale(locale){
+      console.log(locale)
+      this.$i18n.locale = locale;
+      if (locale === 'en'){
+        this.enActive = true
+      }
+      else {
+        this.enActive = false
+      }
     }
 
 
@@ -187,5 +202,7 @@ export default {
 <style lang="scss">
 @import "@/assets/style/6-components/topNav.scss";
 @import "@/assets/style/6-components/primaryButton.scss";
-
+.active{
+  color: #CB063B;
+}
 </style>
