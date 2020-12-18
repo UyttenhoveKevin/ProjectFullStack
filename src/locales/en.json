@@ -50,5 +50,28 @@
       "title": "Review title",
       "description": "What did you like about the movie?"
     }
+  },
+  "filter": {
+    "title": "Filters",
+    "labels": {
+      "removeFilter": "Remove Filters",
+      "search": "Search",
+      "genre": "Genre",
+      "all": "All",
+      "action": "Action",
+      "comedy": "Comedy",
+      "drama": "Drama",
+      "family": "Family",
+      "sort": "Sort",
+      "title": "Title",
+      "year": "Year",
+      "dateAdded": "Date Added",
+      "rating": "Rating",
+      "filter": "Filter",
+      "update": "Update filters"
+    },
+    "placeholder": {
+      "title": "Movie title"
+    }
   }
 }

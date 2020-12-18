@@ -50,5 +50,28 @@
       "title": "Review titel",
       "description": "Wat vond je ervan?"
     }
+  },
+  "filter": {
+    "title": "Filters",
+    "labels": {
+      "removeFilter": "Verwijder Filters",
+      "search": "Zoeken",
+      "genre": "Categorie",
+      "all": "Alles",
+      "action": "Actie",
+      "comedy": "Comedy",
+      "drama": "Drama",
+      "family": "Familie",
+      "sort": "Sorteer",
+      "title": "Titel",
+      "year": "Jaar",
+      "dateAdded": "Datum toegevoegd",
+      "rating": "Score",
+      "filter": "Filter",
+      "update": "Update filters"
+    },
+    "placeholder": {
+      "title": "Movie titel"
+    }
   }
 }

@@ -2,10 +2,10 @@
   <div>
     <div class="o-top-nav-container">
       <div class="o-flex--space-between o-flex--align-items-end">
-        <h1>Filters</h1>
+        <h1>{{$t('filter.title')}}</h1>
         <div v-if="store.state.filtersActive" v-on:click="removeFilters" class="o-flex--justify-center o-spacing--top u-hover">
 
-          <h3 class="u-font-color--alt o-spacing--right-sm"> Remove filters</h3>
+          <h3 class="u-font-color--alt o-spacing--right-sm"> {{ $t('filter.labels.removeFilter') }}</h3>
           <svg id="Group_5" data-name="Group 5" xmlns="http://www.w3.org/2000/svg" width="13.797" height="18.091" viewBox="0 0 13.797 18.091">
             <path id="Path_14" data-name="Path 14" d="M73.91,1.645a.927.927,0,0,1,.96-.933h3.947a.927.927,0,0,1,.96.933V2.667h.711V1.645A1.638,1.638,0,0,0,78.818,0H74.871A1.638,1.638,0,0,0,73.2,1.645V2.667h.711Zm0,0" transform="translate(-69.945)" fill="#cb063b"/>
             <path id="Path_15" data-name="Path 15" d="M29.639,136.579h8.41a1.514,1.514,0,0,0,1.44-1.6V124H28.2v10.979a1.514,1.514,0,0,0,1.44,1.6ZM36.111,125.7a.356.356,0,0,1,.711,0v8.4a.356.356,0,1,1-.711,0Zm-2.623,0a.356.356,0,0,1,.711,0v8.4a.356.356,0,1,1-.711,0Zm-2.623,0a.356.356,0,0,1,.711,0v8.4a.356.356,0,1,1-.711,0Zm0,0" transform="translate(-26.946 -118.488)" fill="#cb063b"/>
@@ -15,41 +15,41 @@
       </div>
 
 
-      <h2>Search</h2>
-      <input type="text" v-model="searchQuery" placeholder="Movie title">
+      <h2>{{ $t('filter.labels.search') }}</h2>
+      <input type="text" v-model="searchQuery" :placeholder="$t('filter.placeholder.title')">
 
-      <h2><label for="genres">Genre</label> </h2>
+      <h2><label for="genres">{{ $t('filter.labels.genre') }}</label> </h2>
       <div id="genres" class="select-box">
         <div class="select-box__current" tabindex="1">
           <div class="select-box__value"><input class="select-box__input" type="radio" id="0" value="1" name="Ben" v-model="checkedGenres" />
-            <p class="select-box__input-text">All</p>
+            <p class="select-box__input-text">{{ $t('filter.labels.all') }}</p>
           </div>
           <div class="select-box__value"><input class="select-box__input" type="radio" id="1" value="2" name="Ben" v-model="checkedGenres"/>
-            <p class="select-box__input-text">Action</p>
+            <p class="select-box__input-text">{{ $t('filter.labels.action') }}</p>
           </div>
           <div class="select-box__value"><input class="select-box__input" type="radio" id="2" value="3" name="Ben" v-model="checkedGenres"/>
-            <p class="select-box__input-text">Comedy</p>
+            <p class="select-box__input-text">{{ $t('filter.labels.comedy') }}</p>
           </div>
           <div class="select-box__value"><input class="select-box__input" type="radio" id="3" value="4" name="Ben" v-model="checkedGenres"/>
-            <p class="select-box__input-text">Drama</p>
+            <p class="select-box__input-text">{{ $t('filter.labels.drama') }}</p>
           </div>
           <div class="select-box__value"><input class="select-box__input" type="radio" id="4" value="5" name="Ben" v-model="checkedGenres"/>
-            <p class="select-box__input-text">Family</p>
+            <p class="select-box__input-text">{{ $t('filter.labels.family') }}</p>
           </div>
           <svg class="select-box__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
             <g><path fill="#989FA8" d="M500,775.4L10,287.2l64.4-62.6L500,650.2l425.6-425.6l64.4,62.6L500,775.4z"/></g>
 </svg>
         </div>
         <ul class="select-box__list">
-          <li><label class="select-box__option" for="0" aria-hidden="aria-hidden">All</label></li>
-          <li><label class="select-box__option" for="1" aria-hidden="aria-hidden">Action</label></li>
-          <li><label class="select-box__option" for="2" aria-hidden="aria-hidden">Comedy</label></li>
-          <li><label class="select-box__option" for="3" aria-hidden="aria-hidden">Drama</label></li>
-          <li><label class="select-box__option" for="4" aria-hidden="aria-hidden">Family</label></li>
+          <li><label class="select-box__option" for="0" aria-hidden="aria-hidden">{{ $t('filter.labels.all') }}</label></li>
+          <li><label class="select-box__option" for="1" aria-hidden="aria-hidden">{{ $t('filter.labels.action') }}</label></li>
+          <li><label class="select-box__option" for="2" aria-hidden="aria-hidden">{{ $t('filter.labels.comedy') }}</label></li>
+          <li><label class="select-box__option" for="3" aria-hidden="aria-hidden">{{ $t('filter.labels.drama') }}</label></li>
+          <li><label class="select-box__option" for="4" aria-hidden="aria-hidden">{{ $t('filter.labels.family') }}</label></li>
         </ul>
       </div>
 
-      <h2>Sort</h2>
+      <h2>{{ $t('filter.labels.sort') }}</h2>
       <div>
         <table>
           <tr v-for="item in sortItems">
@@ -94,10 +94,10 @@
         </table>
       </div>
       <div v-if="!store.state.filtersActive" class="o-spacing--center">
-        <button  v-on:click="filterList" class="c-button">Filter</button>
+        <button  v-on:click="filterList" class="c-button">{{ $t('filter.labels.filter') }}</button>
       </div>
       <div v-else class="o-spacing--center">
-        <button v-on:click="filterList" class="c-button">Update filters</button>
+        <button v-on:click="filterList" class="c-button">{{ $t('filter.labels.update') }}</button>
       </div>
     </div>
   </div>
@@ -121,19 +121,19 @@
         },
         sortItems: [
             {
-              category: "Title",
+              category: this.$t('filter.labels.title').toString(),
               active: true
             },
           {
-            category: "Year",
+            category: this.$t('filter.labels.year').toString(),
             active: false
           },
           {
-            category: "DateAdded",
+            category: this.$t('filter.labels.dateAdded').toString(),
             active: false
           },
           {
-            category: "Rating",
+            category: this.$t('filter.labels.rating').toString(),
             active: false
           }],
         sortAsc: true
@@ -206,19 +206,19 @@
         this.checkedGenres= 1;
         this.sortItems =  [
           {
-            category: "Title",
+            category: this.$t('filter.labels.title').toString(),
             active: true
           },
           {
-            category: "Year",
+            category: this.$t('filter.labels.year').toString(),
             active: false
           },
           {
-            category: "DateAdded",
+            category: this.$t('filter.labels.dateAdded').toString(),
             active: false
           },
           {
-            category: "Rating",
+            category: this.$t('filter.labels.rating').toString(),
             active: false
           }]
       },
