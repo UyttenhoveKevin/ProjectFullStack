@@ -5,7 +5,7 @@
 Bedankt om me nog tot vrijdag te geven om een aantal dingen toe te voegen. Ik heb de volgende dingen toegevoegd:
 
 ```
-Npm optimalisaties: Router veranderd naar lazy loading
+Webpack optimalisaties: Router veranderd naar lazy loading
 Locale: En/Nl toegevoegd voor heel het project
 Testing: 1 Integration test en 1 Unit test
 ```
