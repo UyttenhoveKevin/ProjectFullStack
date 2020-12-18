@@ -1,48 +1,48 @@
 <template>
   <div>
     <div v-if="store.state.user ==='admin'" class="o-top-nav-container" >
-      <h1>Add a movie</h1>
-      <h2>Title*</h2>
-      <input type="text" v-model="title" placeholder="Movie title"/>
+      <h1>{{ $t('addMovie.title') }}</h1>
+      <h2>{{ $t('addMovie.labels.title') }}*</h2>
+      <input type="text" v-model="title" :placeholder="$t('addMovie.placeholders.title')"/>
 
-      <h2>Description*</h2>
-      <input type="text" v-model="description" placeholder="What is the movie about?"/>
+      <h2>{{ $t('addMovie.labels.description') }}*</h2>
+      <input type="text" v-model="description" :placeholder="$t('addMovie.placeholders.description')"/>
 
-      <h2>Size*</h2>
-      <input type="text" v-model="size" placeholder="How big is the movie?"/>
+      <h2>{{ $t('addMovie.labels.size') }}*</h2>
+      <input type="text" v-model="size" :placeholder="$t('addMovie.placeholders.size')"/>
 
-      <h2>Default Imageurl*</h2>
-      <input type="text" v-model="imageURL" placeholder="Add a valid ImageUrl"/>
+      <h2>{{ $t('addMovie.labels.defaultImg') }}*</h2>
+      <input type="text" v-model="imageURL" :placeholder="$t('addMovie.placeholders.defaultImg')"/>
 
-      <h2>Date Released*</h2>
-      <input type="text" v-model="dateReleased" placeholder="yyyy-mm-dd"/>
+      <h2>{{ $t('addMovie.labels.dateReleased') }}*</h2>
+      <input type="text" v-model="dateReleased" :placeholder="$t('addMovie.placeholders.dateReleased')"/>
 
-      <h2> Actors</h2>
+      <h2> {{ $t('addMovie.labels.actors') }}</h2>
       <div>
-        <h2 class="u-font-color--grey"> First name</h2>
-        <input type="text" v-model="actorFirstName" placeholder="First name"/>
+        <h2 class="u-font-color--grey"> {{ $t('addMovie.labels.firstName') }}</h2>
+        <input type="text" v-model="actorFirstName" :placeholder="$t('addMovie.placeholders.firstName')"/>
 
-        <h2 class="u-font-color--grey"> Name</h2>
-        <input type="text" v-model="actorName" placeholder="Name"/>
-        <h2 class="u-font-color--grey"> Image</h2>
-        <input type="text" v-model="actorImage" placeholder="Add a valid ImageUrl"/>
+        <h2 class="u-font-color--grey"> {{ $t('addMovie.labels.name') }}</h2>
+        <input type="text" v-model="actorName" :placeholder="$t('addMovie.placeholders.name')"/>
+        <h2 class="u-font-color--grey"> {{ $t('addMovie.labels.actorImg') }}</h2>
+        <input type="text" v-model="actorImage" :placeholder="$t('addMovie.placeholders.actorImg')"/>
       </div>
 
-      <h2>Tags</h2>
-      <input type="text" v-model="tag1" placeholder="Tag 1"/>
-      <input type="text" v-model="tag2" placeholder="Tag 2"/>
-      <input type="text" v-model="tag3" placeholder="Tag 3"/>
+      <h2>{{ $t('addMovie.labels.tags') }}</h2>
+      <input type="text" v-model="tag1" :placeholder="$t('addMovie.placeholders.tags')+ '1'"/>
+      <input type="text" v-model="tag2" :placeholder="$t('addMovie.placeholders.tags')+ '2'"/>
+      <input type="text" v-model="tag3" :placeholder="$t('addMovie.placeholders.tags')+ '3'"/>
 
       <div class="o-spacing--center">
-        <button v-on:click="addMovie" class="c-button">Add Movie</button>
+        <button v-on:click="addMovie" class="c-button">{{ $t('addMovie.labels.addMovie') }}</button>
       </div>
       <div v-if="error" class="o-spacing--center">
-        <p class="u-font-color--alt"> Fill in the required fields</p>
+        <p class="u-font-color--alt"> {{ $t('addMovie.labels.fieldsRequired') }}</p>
       </div>
     </div>
 
     <div v-else>
-      <h2> Enkel beschikbaar voor admins</h2>
+      <h2> {{ $t('addMovie.labels.adminOnly') }}</h2>
     </div>
   </div>
 </template>

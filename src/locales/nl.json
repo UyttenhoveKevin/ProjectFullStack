@@ -7,5 +7,34 @@
   },
   "movieDetails": {
 
+  },
+  "addMovie": {
+    "title": "Film toevoegen",
+    "labels": {
+      "title": "Titel",
+      "description": "Beschrijving",
+      "size": "Grootte",
+      "defaultImg": "Afbeelding",
+      "dateReleased": "Datum wanneer de film uitkwam",
+      "actors": "Acteurs",
+      "firstName": "Voornaam",
+      "name": "Naam",
+      "actorImg": "Afbeelding",
+      "tags": "Tags",
+      "addMovie": "Voeg film toe",
+      "fieldsRequired": "Vul de verplichte velden in",
+      "adminOnly": "Enkel beschikbaar voor admins"
+    },
+    "placeholders": {
+      "title": "Film titel",
+      "description": "Over wat gaat de film?",
+      "size": "Hoe groot is de film?",
+      "defaultImg": "Voeg een geldige afbeelding url toe",
+      "dateReleased": "yyyy-mm-dd",
+      "firstName": "Voornaam",
+      "name": "Naam",
+      "actorImg": "Voeg een geldige afbeelding url toe",
+      "tags": "Tag"
+    }
   }
 }

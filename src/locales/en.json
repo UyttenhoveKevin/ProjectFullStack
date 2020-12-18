@@ -7,5 +7,34 @@
   },
   "movieDetails": {
 
+  },
+  "addMovie": {
+    "title": "Add a movie",
+    "labels": {
+      "title": "Title",
+      "description": "Description",
+      "size": "Size",
+      "defaultImg": "Default Imageurl",
+      "dateReleased": "Date Released",
+      "actors": "Actors",
+      "firstName": "First name",
+      "name": "Name",
+      "actorImg": "Image",
+      "tags": "Tags",
+      "addMovie": "Add Movie",
+      "fieldsRequired": "Fill in the required fields",
+      "adminOnly": "Only available for admins"
+    },
+    "placeholders": {
+      "title": "Movie title",
+      "description": "What is the movie about?",
+      "size": "How big is the movie?",
+      "defaultImg": "Add a valid ImageUrl",
+      "dateReleased": "yyyy-mm-dd",
+      "firstName": "First name",
+      "name": "Name",
+      "actorImg": "Add a valid ImageUrl",
+      "tags": "Tag"
+    }
   }
 }
