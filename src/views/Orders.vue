@@ -1,17 +1,17 @@
 <template>
   <div>
     <div v-if="store.state.user !== 'anonymous'">
-      <h1> Orders </h1>
-      <div v-if="orders.length === 0">
-        <p>No orders found</p>
+      <h1> {{$t('orders.title')}} </h1>
+      <div v-if="orders === null">
+        <p>{{$t('orders.notFound')}}</p>
       </div>
-      <div v-for="order in orders">
+      <div v-if="orders !== null" v-for="order in orders">
         <h2>Order#{{Math.floor(Math.random() * (10000000 - 1 + 1)) + 1}}</h2>
         <table class="o-spacing--bottom u-font-color--grey o-spacing--max-width">
           <tr>
-            <th>Movie Title</th>
-            <th>Date Released</th>
-            <th>Size</th>
+            <th>{{$t('orders.movieTitle')}}</th>
+            <th>{{$t('orders.dateReleased')}}</th>
+            <th>{{$t('orders.size')}}</th>
           </tr>
           <tr v-for="movie in order">
             <td>{{movie.title}}</td>

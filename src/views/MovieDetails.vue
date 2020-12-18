@@ -9,26 +9,26 @@
       <div class="o-flex--wrap">
         <tag v-for="tag in movie.tags" v-bind:key="tag.id" :tag="tag"/>
       </div>
-        <h2>Description</h2>
+        <h2>{{ $t('movieDetails.labels.description') }}</h2>
       <div class="u-font-color--grey">
         <p v-if="movie.description !== '' && movie.description !== null">
           {{movie.description}}
         </p>
         <p v-else>
-          No description available
+          {{ $t('movieDetails.labels.noDescription') }}
         </p>
       </div>
-      <h2>Starring</h2>
+      <h2>{{ $t('movieDetails.labels.starring') }}</h2>
       <div class="o-flex--wrap">
         <actor class="o-spacing--width--1-3" v-for="actor in movie.actors" v-bind:key="actor.id" :image="actor.image" :name="actor.name" :first-name="actor.firstName"/>
         <p class="u-font-color--grey" v-if="movie.actors.length === 0">
-          No actors found
+          {{ $t('movieDetails.labels.noActorsFound') }}
         </p>
       </div>
       <div v-on:click="toggleReviews" class="o-flex--space-between u-hover">
-        <h2> Reviews ({{movie.reviews.length}}) </h2>
+        <h2> {{ $t('movieDetails.labels.reviews') }} ({{movie.reviews.length}}) </h2>
         <div class="o-flex--row" v-if="!showReviews">
-          <p class="u-font-weight--light u-font-color--grey o-spacing--right-sm"> Show</p>
+          <p class="u-font-weight--light u-font-color--grey o-spacing--right-sm"> {{ $t('movieDetails.labels.show') }}</p>
           <svg xmlns="http://www.w3.org/2000/svg" width="18.286" height="10.286" viewBox="0 0 18.286 10.286">
             <g id="Group_3" data-name="Group 3" transform="translate(-319 -48.748)">
               <g id="_9851132801553239378" data-name="9851132801553239378" transform="translate(308.381 36)">
@@ -43,7 +43,7 @@
           </svg>
         </div>
         <div class="o-flex--row" v-else>
-          <p class="u-font-weight--light u-font-color--grey o-spacing--right-sm"> Hide</p>
+          <p class="u-font-weight--light u-font-color--grey o-spacing--right-sm"> {{ $t('movieDetails.labels.hide') }}</p>
           <svg xmlns="http://www.w3.org/2000/svg" width="18.286" height="10.286" viewBox="0 0 18.286 10.286">
             <g id="Group_4" data-name="Group 4" transform="translate(337.286 59.034) rotate(180)">
               <g id="_9851132801553239378" data-name="9851132801553239378" transform="translate(308.381 36)">
@@ -63,14 +63,14 @@
       <div v-if="showReviews">
         <review  v-for="review in movie.reviews" v-bind:key="review.id" :user-name="review.userName" :review="review.reviewDescription" :review-title="review.reviewTitle" :score="review.rating"/>
         <div class="o-spacing--center">
-          <button class="c-button--alt" v-on:click="writeReview">Write review</button>
+          <button class="c-button--alt" v-on:click="writeReview">{{ $t('movieDetails.labels.writeReview') }}</button>
         </div>
       </div>
       <div v-if="!added" class="o-spacing--center">
-        <button class="c-button" v-on:click="addButtonClicked">Add to basket </button>
+        <button class="c-button" v-on:click="addButtonClicked">{{ $t('movieDetails.labels.addToBasket') }} </button>
       </div>
       <div v-else class="o-spacing--center">
-        <button class="c-button" v-on:click="removeButtonClicked">Remove from basket </button>
+        <button class="c-button" v-on:click="removeButtonClicked">{{ $t('movieDetails.labels.removeFromBasket') }} </button>
       </div>
     </div>
 

@@ -73,5 +73,30 @@
     "placeholder": {
       "title": "Movie title"
     }
+  },
+  "home": {
+    "noMoviesFound": "No movies found"
+  },
+  "movieDetails": {
+    "labels": {
+      "description": "Description",
+      "starring": "Starring",
+      "reviews": "Reviews",
+      "show": "Show",
+      "hide": "Hide",
+      "addToBasket": "Add to basket",
+      "removeFromBasket": "Remove from basket",
+      "noDescription": "No description available",
+      "noActorsFound": "No actors found",
+      "writeReview": "Write review"
+    }
+  },
+  "404": "Oops, it looks like the page you're looking for doesn't exist.",
+  "orders": {
+    "title": "Orders",
+    "notFound": "No orders found",
+    "movieTitle": "Movie Title",
+    "dateReleased": "Date Released",
+    "size": "Size"
   }
 }

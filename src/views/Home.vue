@@ -3,7 +3,7 @@
       <movie-item v-for="movie in store.state.movies" v-bind:key="movie.title"
         :movie="movie"
       />
-      <h1 v-if="store.state.movies.length === 0" class="u-font-color--grey"> No movies found</h1>
+      <h1 v-if="store.state.movies.length === 0" class="u-font-color--grey"> {{ $t('home.noMoviesFound') }}</h1>
   </div>
 </template>
 

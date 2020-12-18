@@ -73,5 +73,30 @@
     "placeholder": {
       "title": "Movie titel"
     }
+  },
+  "home": {
+    "noMoviesFound": "Geen films gevonden"
+  },
+  "movieDetails": {
+    "labels": {
+      "description": "Beschrijving",
+      "starring": "Starring",
+      "reviews": "Reviews",
+      "show": "Toon",
+      "hide": "Verberg",
+      "addToBasket": "Voeg toe aan mandje",
+      "removeFromBasket": "Verwijder uit mandje",
+      "noDescription": "Geen beschrijving beschikbaar",
+      "noActorsFound": "Geen acteurs gevonden",
+      "writeReview": "Schrijv review"
+    }
+  },
+  "404": "Oeps, het ziet ernaaruit dat de pagina dat je zoekt niet bestaat.",
+  "orders": {
+    "title": "Orders",
+    "notFound": "Geen orders gevonden",
+    "movieTitle": "Movie titel",
+    "dateReleased": "Datum uitgebracht",
+    "size": "Grootte"
   }
 }
