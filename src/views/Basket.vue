@@ -17,7 +17,7 @@
       </div>
     </div>
     <div v-else>
-      <p>{{ $t('basketPage.noItems') }}</p>
+      <p id="#msgNoItems">{{ $t('basketPage.noItems') }}</p>
 
     </div>
   </div>

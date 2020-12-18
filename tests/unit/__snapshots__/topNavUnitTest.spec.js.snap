@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopNav render html correctly 1`] = `
+<div class="topNav">
+  <div class="o-flex o-flex--space-between">
+    <div class="o-flex--space-between">
+      <h2 class="o-spacing--left u-hover active">EN</h2>
+      <h2 class="o-spacing--left-sm u-hover">NL</h2>
+    </div>
+    <router-link-stub to="/" tag="a" ariacurrentvalue="page" event="click">
+      <h1 class="u-font-weight--black u-font-upperCase u-font-color"><span class="u-font-color--alt">X </span> Movies
+      </h1>
+    </router-link-stub>
+    <div class="o-spacing--right"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" class="u-hover">
+        <g id="_9851132801553239378" data-name="9851132801553239378" transform="translate(-7.667 -13)">
+          <path id="Path_3" data-name="Path 3" d="M8.417,14.591h22.5a.8.8,0,0,0,0-1.591H8.417a.8.8,0,0,0,0,1.591Z" transform="translate(0)" fill="#e6e6e6"></path>
+          <path id="Path_4" data-name="Path 4" d="M8.417,36.591h22.5a.8.8,0,0,0,0-1.591H8.417a.8.8,0,0,0,0,1.591Z" transform="translate(0 -5.591)" fill="#e6e6e6"></path>
+          <path id="Path_5" data-name="Path 5" d="M8.417,25.591h22.5a.8.8,0,0,0,0-1.591H8.417a.8.8,0,0,0,0,1.591Z" transform="translate(0 -2.795)" fill="#e6e6e6"></path>
+        </g>
+      </svg>
+      <!---->
+    </div>
+  </div>
+  <!---->
+</div>
+`;
