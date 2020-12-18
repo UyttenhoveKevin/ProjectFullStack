@@ -1,0 +1,11 @@
+{
+  "basketPage": {
+    "title": "Basket",
+    "noItems": "Your basket is empty",
+    "btnLogin": "Login to order",
+    "btnOrder": "Order"
+  },
+  "movieDetails": {
+
+  }
+}

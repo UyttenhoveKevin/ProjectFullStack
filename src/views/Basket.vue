@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Basket ({{basketItemCounter}}) </h1>
+    <h1>{{ $t('basketPage.title') }} ({{basketItemCounter}}) </h1>
     <div v-if="basketItemCounter > 0">
       <div class="c-movieContainer">
         <movie-item v-for="movie in basketItems" v-bind:key="movie.title"
@@ -9,15 +9,16 @@
       </div>
       <div class="o-spacing--max-width">
         <div v-if="store.state.user !== 'anonymous'" class="o-spacing--center">
-          <button class="c-button" v-on:click="orderMovies">Order movies</button>
+          <button class="c-button" v-on:click="orderMovies">{{ $t('basketPage.btnOrder') }}</button>
         </div>
         <div v-else class="o-spacing--center">
-          <button class="c-button" v-on:click="showLogin">Login to order</button>
+          <button class="c-button" v-on:click="showLogin">{{ $t('basketPage.btnLogin') }}</button>
         </div>
       </div>
     </div>
     <div v-else>
-      <p>Your basket is empty</p>
+      <p>{{ $t('basketPage.noItems') }}</p>
+
     </div>
   </div>
 

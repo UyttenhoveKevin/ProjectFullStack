@@ -1,0 +1,11 @@
+{
+  "basketPage": {
+    "title": "Mandje",
+    "noItems": "Je mandje is leeg",
+    "btnLogin": "Log in om te bestellen",
+    "btnOrder": "Bestellen"
+  },
+  "movieDetails": {
+
+  }
+}
