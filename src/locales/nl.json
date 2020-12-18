@@ -36,5 +36,19 @@
       "actorImg": "Voeg een geldige afbeelding url toe",
       "tags": "Tag"
     }
+  },
+  "addReview": {
+    "title": "Je beoordeelt:",
+    "labels": {
+      "title": "Titel",
+      "description": "Beschrijving",
+      "rating": "Score",
+      "addReview": "Voeg de review toe",
+      "fieldsRequired": "Alle velden zijn verplicht"
+    },
+    "placeholders": {
+      "title": "Review titel",
+      "description": "Wat vond je ervan?"
+    }
   }
 }

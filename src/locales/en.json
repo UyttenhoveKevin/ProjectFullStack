@@ -36,5 +36,19 @@
       "actorImg": "Add a valid ImageUrl",
       "tags": "Tag"
     }
+  },
+  "addReview": {
+    "title": "Reviewing:",
+    "labels": {
+      "title": "Title",
+      "description": "Description",
+      "rating": "Rating",
+      "addReview": "Write review",
+      "fieldsRequired": "All fields required"
+    },
+    "placeholders": {
+      "title": "Review title",
+      "description": "What did you like about the movie?"
+    }
   }
 }

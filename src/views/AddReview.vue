@@ -2,13 +2,13 @@
   <div>
     <div class="o-top-nav-container">
 
-      <h1 class="o-spacing--bottom">Reviewing: <span>{{ $route.params.movieId }}</span> </h1>
+      <h1 class="o-spacing--bottom">{{ $t('addReview.title') }} <span>{{ $route.params.movieId }}</span> </h1>
 
-      <h2>Title</h2>
-      <input type="text" v-model="title" placeholder="Review title">
-      <h2>Description</h2>
-      <input type="text" v-model="description" placeholder="What did you like about the movie?">
-      <h2><label for="genres">Rating</label></h2>
+      <h2>{{ $t('addReview.labels.title') }}</h2>
+      <input type="text" v-model="title" :placeholder="$t('addReview.placeholders.title')">
+      <h2>{{ $t('addReview.labels.description')}}</h2>
+      <input type="text" v-model="description" :placeholder="$t('addReview.placeholders.description')">
+      <h2><label for="genres">{{ $t('addReview.labels.rating')}}</label></h2>
       <div id="genres" class="select-box">
         <div class="select-box__current" tabindex="1">
           <div v-for="n in 10" class="select-box__value"><input class="select-box__input" type="radio" :id="n-1"
@@ -27,10 +27,10 @@
       </div>
 
       <div class="o-spacing--center o-spacing--top">
-          <button class="c-button" v-on:click="addReview">Write review</button>
+          <button class="c-button" v-on:click="addReview">{{ $t('addReview.labels.addReview')}}</button>
       </div>
       <div v-if="!fieldsValid" class="o-spacing--center">
-        <p class="u-font-color--alt">All fields required</p>
+        <p class="u-font-color--alt">{{ $t('addReview.labels.fieldsRequired')}}</p>
       </div>
     </div>
   </div>
