@@ -10,7 +10,7 @@ describe('Basket', () => {
         expect(wrapper.html()).toMatchSnapshot();
     })
 
-    it('basket is empty',() =>{
+    it('check if basket is empty',() =>{
         const wrapper = shallowMount(Basket)
         const msg = wrapper.find('#msgNoItems')
 
